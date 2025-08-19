@@ -17,7 +17,7 @@ function ResumeNew() {
   const { language } = useTheme();
   const currentTranslations = translations[language];
   // Cache-busting supaya tidak mengambil response HTML lama dari cache (304)
-  const [pdfUrl] = useState(() => `/cv-yafet-purnama.pdf?v=${Date.now()}`);
+  const [pdfUrl] = useState(() => `/cv-ats-yafet-purnama.pdf?v=${Date.now()}`);
 
   useEffect(() => {
     setWidth(window.innerWidth);
