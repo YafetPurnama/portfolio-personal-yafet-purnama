@@ -643,15 +643,15 @@ button:focus {
 }
 
 :root {
-  --navbar-height-desktop: 90px;
-  --navbar-height-mobile: 70px; /* Sesuaikan dengan tinggi navbar mobile Anda */
+  --navbar-height-desktop: 60px;
+  --navbar-height-mobile: 60px; /* Sesuaikan dengan tinggi navbar mobile Anda */
 }
 
 @media (max-width: 767px) {
   .home-content {
     /* padding-top: 90px !important; Adjust this value for mobile navbar height */
     /* padding-top: 3rem !important; */
-    padding-top: 2rem;
+    padding-top: var(--navbar-height-mobile);
     text-align: center;
   }
 
@@ -973,7 +973,7 @@ button:focus {
 /* --------- */
 .project-section {
   position: relative !important;
-  padding-top: 150px !important;
+  padding-top: 60px !important;
   padding-bottom: 30px !important;
   background: var(--background-gradient) !important;
 }
@@ -1082,7 +1082,7 @@ button:focus {
 
 .about-section {
   position: relative !important;
-  padding-top: 150px !important;
+  padding-top: 60px !important;
   padding-bottom: 30px !important;
   background-image: var(--section-background-color) !important;
   color: white !important;
@@ -1143,7 +1143,7 @@ button:focus {
 
 .resume-section {
   position: relative !important;
-  padding-top: 110px !important;
+  padding-top: 60px !important;
   padding-bottom: 30px !important;
   background-image: var(--section-background-color) !important;
   color: white !important;
