@@ -607,7 +607,7 @@ button:focus {
 
 .home-section {
   position: relative;
-  z-index: -1;
+  z-index: 1;
   background-image: var(--image-gradient), url(./Assets/home-bg.jpg);
   background-position: top center;
   background-repeat: no-repeat;
@@ -616,8 +616,8 @@ button:focus {
 }
 
 .home-content {
-  /* padding: 100px 0 2rem !important; Adjust this value to match navbar height */
-  padding-top: var(--navbar-height-desktop);
+  /* Remove artificial gap below navbar on top of the page */
+  padding-top: 0;
   color: whitesmoke;
   text-align: left;
   display: flex;
@@ -649,9 +649,7 @@ button:focus {
 
 @media (max-width: 767px) {
   .home-content {
-    /* padding-top: 90px !important; Adjust this value for mobile navbar height */
-    /* padding-top: 3rem !important; */
-    padding-top: 2rem;
+    padding-top: 0;
     text-align: center;
   }
 
