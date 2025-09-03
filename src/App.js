@@ -25,8 +25,8 @@ function App() {
     const timer = setTimeout(() => {
       upadateLoad(false);
     },
-    // 1200);
-      3500); // 3000ms + 500ms
+    // 8000 / 1200);
+      1200);
 
     return () => clearTimeout(timer);
   }, []);
@@ -38,10 +38,12 @@ function App() {
     }
   }, [load]);
 
+  // No route-based loader to avoid repeated toggles/loops
+
   return (
     <ThemeProvider>
       <Router>
-        <Preloader load={load} />
+        {load && <Preloader load={load} />}
         <div className="App" id={load ? "no-scroll" : "scroll"}>
           <Navbar />
           <ScrollToTop />
