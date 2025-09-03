@@ -3,7 +3,9 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { CgWebsite } from "react-icons/cg";
-import { BsGithub } from "react-icons/bs";
+import { BsGithub, BsEye } from "react-icons/bs";
+import { IoNewspaperOutline } from "react-icons/io5";
+
 
 function ProjectCards(props) {
   const { previewImages = [] } = props;
@@ -63,14 +65,27 @@ function ProjectCards(props) {
               {"Demo"}
             </Button>
           )}
-
+          {"\n"}
+          {props.pubLink && (
+            <Button
+              variant="primary"
+              href={props.pubLink}
+              target="_blank"
+              rel="noreferrer"
+              style={{ marginLeft: "10px" }}
+            >
+              <IoNewspaperOutline /> &nbsp;
+              {/* {"Publikasi"} */}
+              {props.pubButtonText || "Publikasi"}
+            </Button>
+          )}
           {hasPreview && (
             <Button
               variant="secondary"
               onClick={openPreview}
               style={{ marginLeft: "10px" }}
             >
-              View
+              <BsEye /> &nbsp;View
             </Button>
           )}
         </Card.Body>

@@ -16,6 +16,7 @@ import imgRpgBegin from "../../Assets/Projects/Uwu-start-begin.png";
 // import imgAnugerah from "../../Assets/Projects/web-anugerah.png";
 import imgAnugerah from "../../Assets/Projects/banner-web-anugerah.png";
 import peerAssement from "../../Assets/Projects/banner-peer-assesment.png";
+import lockerPenyimpanan from "../../Assets/Projects/banner-loker-penyimpanan.png";
 
 function Projects() {
   const { language } = useTheme();
@@ -81,6 +82,20 @@ function Projects() {
               description={t.project_peer_assessment_desc}
               ghLink="https://github.com/YafetPurnama/peer_assesment"
               demoLink="https://peer-assessment.vercel.app/"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={lockerPenyimpanan}
+              isBlog={false}
+              title={t.project_locker_penyimpanan_title}
+              description={t.project_locker_penyimpanan_desc}
+              pubLink="https://com.ojs.co.id/index.php/jkm/article/view/367"
+              // ghLink="https://github.com/YafetPurnama/locker_penyimpanan"
+              // demoLink="https://locker-penyimpanan.vercel.app/"
+
+              pubButtonText={t.button_publication}
             />
           </Col>
         </Row>

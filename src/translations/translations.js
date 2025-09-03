@@ -61,6 +61,11 @@ export const translations = {
     
     // Footer
     footer_text: 'Made with ❤️ by Yafet Purnama',
+
+    project_locker_penyimpanan_title: 'Sistem Locker Storage',
+    project_locker_penyimpanan_desc: 'Developed a web-based digital locker management system to provide a secure and efficient storage solution. Built with a modern tech stack including Next.js 15, Drizzle ORM, and WebSockets for real-time interactions.',
+
+    button_publication: 'Publication',
     
     // Common
     close: 'Close',
@@ -191,6 +196,11 @@ export const translations = {
     
     // Footer
     footer_text: 'Dibuat dengan ❤️ oleh Yafet Purnama',
+
+    project_locker_penyimpanan_title: 'Sistem Penyimpanan Loker',
+    project_locker_penyimpanan_desc: 'Pengembangan sistem manajemen loker digital berbasis web untuk menyediakan solusi penyimpanan yang aman dan efisien. Dibangun menggunakan tumpukan teknologi modern termasuk Next.js 15, Drizzle ORM, dan WebSockets untuk interaksi waktu-nyata.',
+
+    button_publication: 'Publikasi',
     
     // Common
     close: 'Tutup',
