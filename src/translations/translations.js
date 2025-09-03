@@ -81,7 +81,10 @@ export const translations = {
     
     project_web_anugerah_title: 'Anugerah Jaya Abadi Website',
     project_web_anugerah_desc: 'Anugerah Jaya Abadi Website is a website built using WordPress CMS, equipped with the features needed for the website.',
-    
+
+    project_peer_assessment_title: 'Program Peer Assessment',
+    project_peer_assessment_desc: 'A web application for peer assessment in educational settings, built with React 19, TypeScript, and Tailwind CSS.',
+
     // Contact
     say_hello: 'Say Hello',
     contact_description: "Fill out the form below to get in touch with me. I'm always excited to hear about new opportunities and I'll do my best to respond to your inquiry within 24 hours.",
@@ -209,6 +212,9 @@ export const translations = {
     project_web_anugerah_title: 'Website Anugerah Jaya Abadi',
     project_web_anugerah_desc: 'Website Anugerah Jaya Abadi adalah website yang dibuat menggunakan CMS WordPress, dilengkapi dengan fitur-fitur yang dibutuhkan oleh website.',
     
+    project_peer_assessment_title: 'Sistem Penilaian Sejawat',
+    project_peer_assessment_desc: 'Sebuah aplikasi web untuk penilaian sejawat (peer assessment) dalam lingkungan pendidikan, memungkinkan mahasiswa atau siswa untuk saling memberikan evaluasi. Dibangun dengan React 19, TypeScript, dan Tailwind CSS.',
+
     // Contact
     say_hello: 'Katakan Halo',
     contact_description: 'Isi formulir di bawah untuk menghubungi saya. Saya selalu bersemangat mendengar peluang baru dan akan berusaha merespons pertanyaan Anda dalam 24 jam.',

@@ -7,10 +7,15 @@ import { translations } from "../../translations/translations";
 
 // Import local project images
 import imgTuku from "../../Assets/Projects/tuku-tuku.png";
-import imgRental from "../../Assets/Projects/rental-mobil - Backup.png";
+import bannerimgTuku from "../../Assets/Projects/banner-tuku-tuku.png";
+// import imgRental from "../../Assets/Projects/rental-mobil - Backup.png";
+import imgRental from "../../Assets/Projects/rental-mobil.png";
 import imgRpg from "../../Assets/Projects/game-rpg.png";
+import bannerImgRpg from "../../Assets/Projects/banner-game-rpg.png";
 import imgRpgBegin from "../../Assets/Projects/Uwu-start-begin.png";
-import imgAnugerah from "../../Assets/Projects/web-anugerah.png";
+// import imgAnugerah from "../../Assets/Projects/web-anugerah.png";
+import imgAnugerah from "../../Assets/Projects/banner-web-anugerah.png";
+import peerAssement from "../../Assets/Projects/banner-peer-assesment.png";
 
 function Projects() {
   const { language } = useTheme();
@@ -29,7 +34,7 @@ function Projects() {
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={imgTuku}
+              imgPath={bannerimgTuku}
               isBlog={false}
               title={t.project_tuku_title}
               description={t.project_tuku_desc}
@@ -49,7 +54,7 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={imgRpg}
+              imgPath={bannerImgRpg}
               isBlog={false}
               title={t.project_rpg_title}
               description={t.project_rpg_desc}
@@ -65,6 +70,17 @@ function Projects() {
               title={t.project_web_anugerah_title}
               description={t.project_web_anugerah_desc}
               demoLink="https://anugerahjayabadi.com"
+            />
+          </Col>
+
+          <Col md={4} className="project-card">
+            <ProjectCard
+              imgPath={peerAssement}
+              isBlog={false}
+              title={t.project_peer_assessment_title}
+              description={t.project_peer_assessment_desc}
+              ghLink="https://github.com/YafetPurnama/peer_assesment"
+              demoLink="https://peer-assessment.vercel.app/"
             />
           </Col>
         </Row>
