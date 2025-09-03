@@ -30,7 +30,7 @@ function Home() {
                 <strong className="main-name"> {currentTranslations.name}</strong>
               </h1>
 
-              <div style={{ padding: 50, textAlign: "left" }}>
+              <div style={{ padding: 50, textAlign: "left" }} className="typewriter-wrapper">
               {/* <div className="typewriter-container"> */}
                 <Type />
               </div>

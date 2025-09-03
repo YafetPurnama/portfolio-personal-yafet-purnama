@@ -429,6 +429,19 @@ button:focus {
   padding: 20px;
 }
 
+/* Mobile responsive adjustments for profile picture */
+@media (max-width: 767px) {
+  .profile-picture-container {
+    padding: 10px 20px 40px 20px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  /* Add safe area for mobile browsers */
+  .profile-picture-container {
+    padding-bottom: calc(40px + env(safe-area-inset-bottom)) !important;
+  }
+}
+
 .profile-picture-border {
   position: relative;
   width: 320px;
@@ -487,8 +500,8 @@ button:focus {
 
 @media (max-width: 576px) {
   .profile-picture-border {
-    width: 240px;
-    height: 240px;
+    width: 220px;
+    height: 220px;
   }
 }
 
@@ -558,10 +571,74 @@ button:focus {
   padding-top: 30px !important;
 }
 
+/* Mobile responsive adjustments for home section */
+@media (max-width: 767px) {
+  .home-section {
+    padding-bottom: 60px !important;
+    padding-top: 20px !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  /* Ensure content fits within viewport */
+  .home-section .container-fluid {
+    min-height: calc(100vh - 120px) !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
+
 .home-content {
   padding: 9rem 0 2rem !important;
   color: whitesmoke;
   text-align: left;
+}
+
+/* Mobile responsive adjustments for home content */
+@media (max-width: 767px) {
+  .home-content {
+    padding: 4rem 0 6rem !important;
+    text-align: center !important;
+  }
+  
+  .home-header {
+    padding-top: 40px !important;
+    padding-bottom: 20px !important;
+  }
+  
+  .heading {
+    font-size: 1.8em !important;
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+  
+  .heading-name {
+    font-size: 2em !important;
+    padding-left: 0 !important;
+    text-align: center !important;
+  }
+  
+  .typewriter-wrapper {
+    padding: 20px 0 !important;
+    text-align: center !important;
+  }
+  
+  /* Ensure proper spacing and prevent overflow */
+  .container-fluid {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .col-md-7, .col-md-5 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
 }
 
 .heading {
@@ -605,7 +682,9 @@ button:focus {
   .Typewriter__wrapper {
     font-size: 1.4em !important;
     font-weight: 500 !important;
-    position: absolute !important;
+    position: relative !important;
+    text-align: center !important;
+    margin-top: 20px !important;
   }
   .Typewriter__cursor {
     display: none !important;
