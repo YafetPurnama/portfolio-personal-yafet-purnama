@@ -556,6 +556,7 @@ button:focus {
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
   padding-top: 30px !important;
+  margin-top: 70px !important; /* Tambahkan ini agar konten tidak tertutup navbar */
 }
 
 .home-content {
