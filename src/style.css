@@ -54,18 +54,64 @@ button:focus {
   height: 100%;
   z-index: 999999;
   background-color: #0c0513;
-  background-image: url(./Assets/pre.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #preloader-none {
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none;
 }
 
 #no-scroll {
   overflow: hidden;
   height: 100vh;
+}
+
+/* Custom splash layout and ring animation */
+.splash {
+  text-align: center;
+  color: #f6f6f7;
+}
+
+.splash-ring {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 24px auto;
+  border-radius: 50%;
+  background: conic-gradient(var(--imp-text-color) 0 85deg, rgba(255, 255, 255, 0.12) 85deg 360deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
+  mask: radial-gradient(farthest-side, transparent calc(100% - 8px), #000 0);
+  animation: splash-rotate 1.1s linear infinite;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05) inset;
+}
+
+@keyframes splash-rotate {
+  to { transform: rotate(1turn); }
+}
+
+.splash-hello {
+  font-size: 2.2rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.splash-hello .hi { color: #ffffff; display: block; }
+.splash-hello .welcome { color: #ffffff; display: block; }
+.splash-hello .name { color: var(--imp-text-color); display: block; }
+
+.splash-sub {
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+.splash-timer {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 10px;
 }
 
 /* --------- */
@@ -504,7 +550,7 @@ button:focus {
 
 .home-section {
   position: relative;
-  z-index: -1;
+  z-index: 1;
   background-image: var(--image-gradient), url(./Assets/home-bg.jpg);
   background-position: top center;
   background-repeat: no-repeat;

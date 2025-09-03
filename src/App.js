@@ -31,6 +31,13 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Ensure page is at the top once loading completes to avoid perceived spacing
+  useEffect(() => {
+    if (!load) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }
+  }, [load]);
+
   return (
     <ThemeProvider>
       <Router>
