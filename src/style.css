@@ -705,6 +705,12 @@ button:focus {
   color: #fdfdfd !important;
   color: var(--imp-text-color) !important; /* Kursor tetap merah sebagai aksen, atau ganti ke --text-color jika ingin putih juga */
 }
+
+/* Light theme: make typewriter strings dark for readability */
+[data-theme='light'] .Typewriter__wrapper {
+  color: #212529 !important;
+}
+
 @media (max-width: 767px) {
   .Typewriter__wrapper {
     font-size: 1.4em !important;
