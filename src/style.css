@@ -574,7 +574,7 @@ button:focus {
 .home-section {
   position: relative;
   z-index: 1;
-  background-image: var(--image-gradient), url(./Assets/home-bg.jpg);
+  background-image: var(--image-gradient), var(--home-bg-image);
   background-position: top center;
   background-repeat: no-repeat;
   padding-bottom: 30px !important;
@@ -1305,6 +1305,8 @@ button:focus {
     rgba(17, 16, 16, 0.582),
     rgba(24, 8, 8, 0.904)
   );
+  /* Background image untuk Home, mengikuti tema gelap */
+  --home-bg-image: url(./Assets/home-bg-dark.png);
   --text-color: white;
   --navbar-bg: #1b1a2ea9;
   --footer-bg: rgb(10, 4, 22);
@@ -1323,6 +1325,8 @@ button:focus {
 /* Ini akan aktif saat light theme */
 [data-theme='light'] {
   --background-gradient: linear-gradient(to bottom left, #ffffff, #e9ecef);
+  /* Background image untuk Home, mengikuti tema terang */
+  --home-bg-image: url(./Assets/home-bg-light.png);
   --text-color: #212529; /* Hitam lembut */
   --navbar-bg: rgba(255, 255, 255, 0.8);
   --footer-bg: #ffffff;
