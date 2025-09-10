@@ -223,7 +223,7 @@ button:focus {
   justify-content: center !important;
   text-align: center !important;
   border: 1px solid var(--imp-text-color) !important;
-  color: var(--text-color) !important;
+  color: var(--text-color) !important; /* follow theme */
   transition: all 0.3s ease !important;
   height: 38px !important;
   min-width: 80px !important;
@@ -339,7 +339,8 @@ button:focus {
   .navbar {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
-    background-color: #1a0f0f !important;
+    /* Follow theme on mobile too */
+    background-color: var(--navbar-bg) !important;
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
@@ -362,7 +363,19 @@ button:focus {
     padding: 15px 20px;
     font-size: 1.1em;
   }
+
+  /* Ensure collapsed menu follows theme */
+  .navbar-collapse {
+    background-color: var(--navbar-bg) !important;
+    border-radius: 12px;
+    padding: 0.5rem 0.25rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  .navbar-brand, .navbar-nav .nav-link {
+    color: var(--text-color) !important;
+  }
 }
+
 .navbar-brand {
   color: var(--text-color) !important;
 }
@@ -551,6 +564,10 @@ button:focus {
 }
 #tsparticles {
   position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   width: 100%;
@@ -601,7 +618,7 @@ button:focus {
 
 .home-content {
   padding: 9rem 0 2rem !important;
-  color: whitesmoke;
+  color: var(--text-color);
   text-align: left;
 }
 
@@ -772,10 +789,18 @@ button:focus {
   position: relative;
   padding-bottom: 70px !important;
   padding-top: 70px !important;
+  /* Follow theme background; light override below */
+  background: var(--background-gradient) !important;
+  color: var(--text-color) !important;
+}
+
+/* Light theme: use solid white for the about segment on the home page */
+[data-theme='light'] .home-about-section {
+  background: #ffffff !important;
 }
 
 .home-about-description {
-  color: white !important;
+  color: var(--text-color) !important;
   padding-top: 100px !important;
   padding-bottom: 20px !important;
   text-align: center;
@@ -790,7 +815,23 @@ button:focus {
 .home-about-social {
   text-align: center !important;
   padding-top: 25px;
-  color: white !important;
+  color: var(--text-color) !important;
+}
+
+/* Dark theme fine-tuning to match previous look (slightly muted paragraphs) */
+[data-theme='dark'] .home-about-body {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+[data-theme='dark'] .home-about-social p {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Ensure light theme stays crisp */
+[data-theme='light'] .home-about-body {
+  color: #212529 !important;
+}
+[data-theme='light'] .home-about-social p {
+  color: #495057 !important;
 }
 
 .home-about-social-links {
@@ -991,6 +1032,7 @@ button:focus {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
+  /* Default follows theme (dark = gradient), ensures we don't force white on dark theme */
   background: var(--background-gradient) !important;
 }
 
@@ -1019,6 +1061,24 @@ button:focus {
 /* Light theme fine-tuning for cards */
 [data-theme='light'] .project-card-view {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+}
+
+/* Light theme: ensure particles remain visible on Projects section.
+   Use the transparent section gradient instead of the opaque page gradient. */
+[data-theme='light'] .project-section {
+  /* Force white background on light theme per design */
+  background: #ffffff !important;
+  /* Subtle noise/dots overlay to mimic reference */
+  /* background-image:
+    radial-gradient(rgba(0, 0, 0, 0.035) 0.5px, transparent 0.5px),
+    radial-gradient(rgba(0, 0, 0, 0.025) 0.5px, transparent 0.5px);
+  background-size: 22px 22px, 11px 11px;
+  background-position: 0 0, 11px 11px; */
+}
+
+/* Explicitly keep gradient on dark theme */
+[data-theme='dark'] .project-section {
+  background: var(--background-gradient) !important;
 }
 
 .blog-card {
@@ -1100,8 +1160,14 @@ button:focus {
   position: relative !important;
   padding-top: 150px !important;
   padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
-  color: white !important;
+  /* Default follow dark theme gradient; light override below */
+  background: var(--background-gradient) !important;
+  color: var(--text-color) !important;
+}
+
+/* Light theme: About section uses solid white to match design */
+[data-theme='light'] .about-section {
+  background: #ffffff !important;
 }
 
 .tech-icons {
@@ -1138,8 +1204,13 @@ button:focus {
 
 .quote-card-view {
   border: none !important;
-  color: white !important;
+  color: var(--text-color) !important;
   background-color: transparent !important;
+}
+
+/* Back-compat: some components still use className="purple" for accent text */
+.purple {
+  color: var(--imp-text-color) !important;
 }
 
 .about-activity {
@@ -1161,14 +1232,41 @@ button:focus {
   position: relative !important;
   padding-top: 110px !important;
   padding-bottom: 30px !important;
-  background-image: var(--section-background-color) !important;
-  color: white !important;
+  /* Follow theme: gradient for dark, override white for light below */
+  background: var(--background-gradient) !important;
+  color: var(--text-color) !important;
+}
+
+/* Light theme: Resume section uses solid white to match design */
+[data-theme='light'] .resume-section {
+  background: #ffffff !important;
 }
 
 .resume {
   padding-top: 50px;
   padding-bottom: 50px;
   justify-content: center;
+}
+
+/* Light mode: put border directly on the PDF page so it matches the preview size */
+[data-theme='light'] .resume .react-pdf__Document {
+  border: none;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+[data-theme='light'] .resume .react-pdf__Page {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden; /* clip corners on canvas/text layers */
+}
+/* Ensure inner layers follow the rounded corners */
+[data-theme='light'] .resume .react-pdf__Page__canvas,
+[data-theme='light'] .resume .react-pdf__Page__textContent,
+[data-theme='light'] .resume .react-pdf__Page__annotations {
+  border-radius: 12px;
 }
 
 .resume-left {
@@ -1324,9 +1422,27 @@ button:focus {
 
 /* Ini akan aktif saat light theme */
 [data-theme='light'] {
+  /* Make gradients semi-transparent so #tsparticles (behind) stays visible */
+  /* --background-gradient: linear-gradient(
+    to bottom left,
+    rgba(255, 255, 255, 0.92),
+    rgba(233, 236, 239, 0.92)
+  ); */
   --background-gradient: linear-gradient(to bottom left, #ffffff, #e9ecef);
   /* Background image untuk Home, mengikuti tema terang */
+  /* --home-bg-image: none; */
   --home-bg-image: url(./Assets/home-bg-light.png);
+  /* Transparent overlays so particles are visible */
+  --image-gradient: linear-gradient(
+    to bottom left,
+    rgba(255, 255, 255, 0.04),
+    rgba(233, 236, 239, 0.06)
+  );
+  --section-background-color: linear-gradient(
+    to bottom left,
+    rgba(255, 255, 255, 0.04),
+    rgba(233, 236, 239, 0.06)
+  );
   --text-color: #212529; /* Hitam lembut */
   --navbar-bg: rgba(255, 255, 255, 0.8);
   --footer-bg: #ffffff;
@@ -1391,11 +1507,17 @@ button:focus {
   background: transparent;
   padding: 0;
   box-shadow: none;
+  border-radius: 0 !important; /* remove circular crop */
+  height: auto; /* allow image to decide height */
 }
 
 .profile-picture-border--plain .profile-picture-img {
   border: none;
   background: transparent;
+  border-radius: 0 !important; /* keep full rectangle */
+  width: 100%;
+  height: auto; /* prevent vertical cropping */
+  object-fit: contain !important; /* ensure full figure visible */
 }
 
 .profile-picture-border--plain:hover {

@@ -29,7 +29,10 @@ function Particle() {
         value: isDark ? 160 : 120,
         density: { enable: true, value_area: 1500 },
       },
-      color: { value: isDark ? "#ffffff" : "#111827" },
+      // Light theme spans both light (home) and dark (other) sections.
+      // Use brighter, higher-contrast color on light theme
+      color: { value: isDark ? "#ffffff" : ["#111111", "#ffffff"] },
+      // color: { value: isDark ? "#ffffff" : "#dc26261e" },
       shape: { type: "circle" },
       line_linked: {
         enable: false,
@@ -37,15 +40,16 @@ function Particle() {
       },
       move: {
         direction: "none",
-        speed: isDark ? 0.05 : 0.03,
+        speed: isDark ? 0.05 : 0.05,
       },
       size: { value: 1.5 },
       opacity: {
-        value: isDark ? 0.25 : 0.12,
+        // Valid opacity range is 0..1. Use higher light value for visibility on dark sections.
+        value: isDark ? 0.25 : 0.35,
         anim: {
           enable: true,
           speed: 0.8,
-          opacity_min: isDark ? 0.05 : 0.03,
+          opacity_min: isDark ? 0.05 : 0.12,
         },
       },
     },
