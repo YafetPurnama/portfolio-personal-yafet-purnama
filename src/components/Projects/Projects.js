@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
@@ -21,6 +21,15 @@ import lockerPenyimpanan from "../../Assets/Projects/banner-loker-penyimpanan.pn
 function Projects() {
   const { language } = useTheme();
   const t = translations[language];
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
   
   return (
     <Container fluid className="project-section">
@@ -33,16 +42,26 @@ function Projects() {
           {t.my_recent_subtext}
         </p>
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bannerimgTuku}
-              isBlog={false}
-              title={t.project_tuku_title}
-              description={t.project_tuku_desc}
-              // demoLink="https://tuku-tuku.vercel.app/"
-              previewImages={[imgTuku]}
-            />
-          </Col>
+          {loading ? (
+            // Skeleton loading for projects
+            [...Array(3)].map((_, index) => (
+              <Col key={`skeleton-${index}`} md={4} className="project-card">
+                <ProjectCard loading={loading} />
+              </Col>
+            ))
+          ) : (
+            // Actual project cards
+            <>
+              <Col md={4} className="project-card">
+                <ProjectCard
+                  imgPath={bannerimgTuku}
+                  isBlog={false}
+                  title={t.project_tuku_title}
+                  description={t.project_tuku_desc}
+                  // demoLink="https://tuku-tuku.vercel.app/"
+                  previewImages={[imgTuku]}
+                />
+              </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
@@ -97,7 +116,9 @@ function Projects() {
 
               pubButtonText={t.button_publication}
             />
-          </Col>
+              </Col>
+            </>
+          )}
         </Row>
       </Container>
     </Container>

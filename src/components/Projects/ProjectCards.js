@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub, BsEye } from "react-icons/bs";
 import { IoNewspaperOutline } from "react-icons/io5";
+import { SkeletonElement, SkeletonText } from "../Skeleton";
 
 
 function ProjectCards(props) {
-  const { previewImages = [] } = props;
+  const { previewImages = [], loading = false } = props;
   const [showPreview, setShowPreview] = useState(false);
   const [previewIndex, setPreviewIndex] = useState(0);
   const [animateKey, setAnimateKey] = useState(0);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const hasPreview = Array.isArray(previewImages) && previewImages.length > 0;
+  const showSkeleton = loading || !isImageLoaded;
 
   const openPreview = () => {
     if (!hasPreview) return;
@@ -29,13 +32,83 @@ function ProjectCards(props) {
     setAnimateKey(prev => prev + 1); // trigger fade animation
   };
 
+  // Handle image load
+  useEffect(() => {
+    if (props.imgPath) {
+      const img = new Image();
+      img.src = props.imgPath;
+      img.onload = () => setIsImageLoaded(true);
+    }
+  }, [props.imgPath]);
+
+  if (loading) {
+    return (
+      <Card className="project-card-view skeleton-card">
+        <SkeletonElement 
+          type="thumbnail" 
+          style={{ 
+            width: '100%', 
+            height: '200px',
+            borderRadius: '8px 8px 0 0'
+          }} 
+        />
+        <Card.Body>
+          <SkeletonElement 
+            type="title" 
+            style={{ 
+              width: '80%', 
+              height: '28px', 
+              marginBottom: '15px',
+              borderRadius: '4px'
+            }} 
+          />
+          <div style={{ marginBottom: '20px' }}>
+            <SkeletonText lines={3} />
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <SkeletonElement 
+              type="button" 
+              style={{ 
+                width: '100px', 
+                height: '38px',
+                borderRadius: '4px'
+              }} 
+            />
+            <SkeletonElement 
+              type="button" 
+              style={{ 
+                width: '100px', 
+                height: '38px',
+                borderRadius: '4px'
+              }} 
+            />
+          </div>
+        </Card.Body>
+      </Card>
+    );
+  }
+
   return (
     <>
       <Card className="project-card-view">
+        {!isImageLoaded && (
+          <SkeletonElement 
+            type="thumbnail" 
+            style={{ 
+              width: '100%', 
+              height: '200px',
+              borderRadius: '8px 8px 0 0',
+              position: 'absolute',
+              zIndex: 1
+            }} 
+          />
+        )}
         <Card.Img
           variant="top"
           src={props.imgPath}
           alt="card-img"
+          onLoad={() => setIsImageLoaded(true)}
+          style={{ opacity: isImageLoaded ? 1 : 0 }}
         />
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>

@@ -1,3 +1,13 @@
+/* Loading Animation */
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
 /* html {
   --section-background-color: linear-gradient(
     to bottom left,

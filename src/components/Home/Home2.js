@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/yafet.png";
 import Tilt from "react-parallax-tilt";
@@ -9,10 +9,20 @@ import {
 import { FaLinkedinIn } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";
 import { translations } from "../../translations/translations";
+import { SkeletonElement, SkeletonText, SkeletonButton } from "../Skeleton";
 
 function Home2() {
+  const [loading, setLoading] = useState(true);
   const { language } = useTheme();
   const currentTranslations = translations[language];
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const containerRef = useRef(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -47,6 +57,50 @@ function Home2() {
     const y = clientY - rect.top;
 
     setBubblePos({ x, y });
+  }
+
+  if (loading) {
+    return (
+      <Container fluid className="home-about-section" id="about">
+        <Container>
+          <Row className="align-items-center">
+            <Col md={8} className="home-about-description">
+              <SkeletonElement 
+                type="title" 
+                style={{ 
+                  width: '50%', 
+                  height: '40px', 
+                  marginBottom: '30px',
+                  borderRadius: '4px'
+                }} 
+              />
+              <div style={{ marginBottom: '40px' }}>
+                <SkeletonText lines={5} className="about-skeleton-text" />
+              </div>
+              <div style={{ display: 'flex', gap: '16px' }}>
+                <SkeletonButton 
+                  width="160px" 
+                  height="50px" 
+                  style={{ borderRadius: '4px' }}
+                />
+                <SkeletonButton 
+                  width="160px" 
+                  height="50px" 
+                  style={{ borderRadius: '4px' }}
+                />
+              </div>
+            </Col>
+            <Col md={4} className="myAvtar">
+              <div className="skeleton-avatar" style={{
+                width: '300px',
+                height: '300px',
+                margin: '0 auto'
+              }} />
+            </Col>
+          </Row>
+        </Container>
+      </Container>
+    );
   }
 
   return (
