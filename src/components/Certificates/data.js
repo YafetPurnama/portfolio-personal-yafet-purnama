@@ -1,4 +1,4 @@
-import portfolioPdf from "../../Assets/Portfolio-Yafet-Purnama.pdf";
+// import portfolioPdf from "../../Assets/Portfolio-Yafet-Purnama.pdf";
 import promptUdemyPdf from "../../Assets/Projects/Certificate - Prompt Engineering Mastery (Udemy).pdf";
 import UXReseacrhPdf from "../../Assets/Projects/Yafet_Purnama_–_E_Certif_SC_Introduction_to_UX_Research_Myskill.pdf";
 import ToeflPdf from "../../Assets/Projects/Yafet Purnama – E-Certif SC TOEFL Test Preparation Myskill.pdf";
