@@ -198,6 +198,7 @@ button:focus {
   display: flex !important;
   align-items: center !important;
   height: 100% !important;
+  background-color: transparent !important;
 }
 
 .navbar-nav .nav-link {
@@ -216,14 +217,30 @@ button:focus {
 
 .fork-btn-inner {
   line-height: 1.4em !important;
+
   background-color: var(--btn-bg) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+
   padding: 0.5rem 1.1rem !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+
+  border: 1px solid var(--imp-border-color) !important;
+  border-radius: 8px !important; 
+  
+  /* Efek Aura (Shadow) */
+  box-shadow: 0 0 12px var(--btn-shadow) !important;
+  
+  color: var(--text-color) !important;
+  transition: all 0.3s ease-in-out !important;
+
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   text-align: center !important;
   border: 1px solid var(--imp-text-color) !important;
-  color: var(--text-color) !important; /* follow theme */
+
   transition: all 0.3s ease !important;
   height: 38px !important;
   min-width: 80px !important;
@@ -232,16 +249,25 @@ button:focus {
 .fork-btn-inner:hover {
   transform: translateY(-2px) !important;
   background-color: var(--btn-bg-hover) !important;
+
+  box-shadow: 0 0 20px var(--btn-shadow-hover) !important;
   border-color: var(--imp-text-color-hover) !important;
   color: var(--imp-text-color-hover) !important;
 }
 
 /* Language and Theme Toggle Buttons */
-.navbar-nav .nav-item:last-child,
+/* .navbar-nav .nav-item:last-child,
 .navbar-nav .nav-item:nth-last-child(2) {
   margin-left: 15px !important;
   display: flex !important;
   align-items: center !important;
+} */
+
+.fork-btn {
+  font-size: 1.1em !important;
+  margin-left: 15px !important;
+  display: flex !important;
+  align-items: center !important; 
 }
 
 /* Ensure all buttons have consistent height */
@@ -253,12 +279,12 @@ button:focus {
   justify-content: center !important;
 }
 
-.sticky {
+/* .sticky {
   background-color: rgba(27, 10, 10, 0.8) !important;
   transition: all 0.3s ease-out 0s !important;
   box-shadow: 0px 10px 10px 0px rgba(27, 10, 10, 0.2) !important;
   backdrop-filter: blur(15px) !important;
-}
+} */
 
 .navbar {
   position: fixed !important;
@@ -336,11 +362,22 @@ button:focus {
 }
 
 @media (max-width: 767px) {
-  .navbar {
+  .navbar .nav-item.fork-btn {
     padding: 1rem 2rem !important;
     font-size: 1.4rem !important;
-    /* Follow theme on mobile too */
-    background-color: var(--navbar-bg) !important;
+    /* background-color: var(--navbar-bg) !important; */ /* <--- INI PENYEBABNYA */
+    background-color: transparent !important;
+
+    /* margin-left: 0 !important;   Reset margin kiri desktop
+    margin-bottom: 15px !important; Beri jarak bawah */
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* Agar tombol terlihat proporsional di HP */
+  .fork-btn-inner {
+    width: auto !important;
+    min-width: 140px !important; /* Sedikit lebih lebar di HP */
   }
   .navbar-nav .nav-item a::after {
     display: none !important;
@@ -349,14 +386,20 @@ button:focus {
   /* Mobile Theme Dropdown */
   .theme-dropdown {
     position: fixed;
+    /* position: static !important; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 200px;
+    /* transform: none !important; */
+    width: 100px; /* Before 200px */
+    margin-top: 10px !important;
+    text-align: center;
     background: var(--navbar-bg);
-    border: 2px solid var(--imp-text-color);
+    /* border: 2px solid var(--imp-text-color); */
+    border: 1px dashed var(--imp-text-color) !important;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    /* box-shadow: none !important; */
   }
   
   .theme-option {
@@ -529,10 +572,10 @@ button:focus {
 }
 
 .wave {
-  animation-name: wave-animation; /* Refers to the name of your @keyframes element below */
-  animation-duration: 2.1s; /* Change to speed up or slow down */
-  animation-iteration-count: infinite; /* Never stop waving :) */
-  transform-origin: 70% 70%; /* Pivot around the bottom-left palm */
+  animation-name: wave-animation;
+  animation-duration: 2.1s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
   display: inline-block;
 }
 
@@ -694,10 +737,10 @@ button:focus {
   /* color: #b562d6 !important; */
   /* color: var(--imp-text-color) !important; */
 /* } */ 
+
 .Typewriter__wrapper {
   font-size: 2.2em !important;
   color: #fdfdfd !important;
-  /* color: var(--text-color) !important; Diubah dari --imp-text-color */
   font-weight: 600 !important;
 }
 .Typewriter__cursor {
@@ -726,14 +769,6 @@ button:focus {
 
 /* Tambahkan di style.css */
 .year-filter-btn {
-  /* background-color: transparent;
-  border: 1px solid #f58c84ff;
-  color: #f58c84ff;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500; */
   background-color: var(--btn-bg);
   border: 1px solid var(--imp-text-color);
   color: var(--text-color);
@@ -753,8 +788,8 @@ button:focus {
 /* Universal modal backdrop blur */
 .modal-backdrop,
 .modal-backdrop.modal-backdrop-blur {
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
   background-color: rgba(0, 0, 0, 0.35) !important;
   z-index: 1050 !important; /* keep above page content */
 }
@@ -810,6 +845,25 @@ button:focus {
   padding-top: 100px !important;
   padding-bottom: 20px !important;
   text-align: center;
+}
+
+/* Ensure long headings wrap and don't cause horizontal overflow */
+/* Settingan untuk header translation agar tidak kacau */
+.home-about-description h1 {
+  margin: 0 auto;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  line-height: 1.15;
+}
+
+@media (max-width: 767px) {
+  .home-about-description h1 {
+    font-size: clamp(1.5rem, 7.2vw, 2rem) !important;
+    letter-spacing: 0 !important;
+  }
 }
 
 .home-about-body {
@@ -1379,7 +1433,7 @@ button:focus {
   }
 }
 
-.fork-btn {
+/* .fork-btn {
   font-size: 1.1em !important;
   padding-top: 10px !important;
 }
@@ -1398,7 +1452,9 @@ button:focus {
 }
 .fork-btn-inner::after {
   display: none !important;
-}
+} */
+
+
 
 /* --- Definisi Variabel Warna --- */
 
@@ -1412,7 +1468,10 @@ button:focus {
   /* Background image untuk Home, mengikuti tema gelap */
   --home-bg-image: url(./Assets/home-bg-dark.png);
   --text-color: white;
-  --navbar-bg: #1b1a2ea9;
+  /* --navbar-bg: #1b1a2ea9; */
+  --navbar-bg: rgba(60, 11, 11, 0.9);
+  /* --navbar-bg: rgba(20, 5, 5, 0.9); */
+  /* --navbar-bg: rgba(27, 26, 46, 0.85); OLD */
   --footer-bg: rgb(10, 4, 22);
   --card-bg: transparent;
   --card-shadow: rgba(220, 38, 38, 0.2); /* Bayangan merah gelap tembus pandang */
@@ -1420,23 +1479,19 @@ button:focus {
   /* Warna Aksen */
   --imp-text-color: #DC2626; /* Merah Gelap */
   --imp-text-color-hover: #EF4444; /* Merah Terang */
-  --btn-bg: rgba(220, 38, 38, 0.2); /* Latar belakang tombol merah gelap tembus pandang */
+
+
+  --btn-bg: rgba(220, 38, 38, 0.15);
+  /* --btn-bg: rgba(220, 38, 38, 0.2); Latar belakang tombol merah gelap tembus pandang */
   --btn-bg-hover: rgba(220, 38, 38, 0.4);
-  --imp-bg-color: #DC2626; /* Warna background merah */
+  /* --imp-bg-color: #DC2626;  */
+  /* Warna background merah */
   --imp-border-color: #EF4444; /* Warna border merah terang */
 }
 
 /* Ini akan aktif saat light theme */
 [data-theme='light'] {
-  /* Make gradients semi-transparent so #tsparticles (behind) stays visible */
-  /* --background-gradient: linear-gradient(
-    to bottom left,
-    rgba(255, 255, 255, 0.92),
-    rgba(233, 236, 239, 0.92)
-  ); */
   --background-gradient: linear-gradient(to bottom left, #ffffff, #e9ecef);
-  /* Background image untuk Home, mengikuti tema terang */
-  /* --home-bg-image: none; */
   --home-bg-image: url(./Assets/home-bg-light.png);
   /* Transparent overlays so particles are visible */
   --image-gradient: linear-gradient(
@@ -1449,8 +1504,9 @@ button:focus {
     rgba(255, 255, 255, 0.04),
     rgba(233, 236, 239, 0.06)
   );
-  --text-color: #212529; /* Hitam lembut */
-  --navbar-bg: rgba(255, 255, 255, 0.8);
+  /* --text-color: #212529; Hitam lembut */
+  --text-color: #1a1a1a;
+  --navbar-bg: rgba(255, 255, 255, 0.85);
   --footer-bg: #ffffff;
   --card-bg: #ffffff;
   --card-shadow: rgba(0, 0, 0, 0.1);
@@ -1458,10 +1514,18 @@ button:focus {
   /* Warna Aksen */
   --imp-text-color: #B91C1C; /* Merah lebih gelap untuk kontras */
   --imp-text-color-hover: #DC2626;
-  --btn-bg: rgba(185, 28, 28, 0.1);
-  --btn-bg-hover: rgba(185, 28, 38, 0.2);
-  --imp-bg-color: #B91C1C; /* Warna background merah gelap */
-  --imp-border-color: #DC2626; /* Warna border merah */
+
+  /* --btn-bg: rgba(185, 28, 28, 0.1); */
+  --btn-bg: rgba(255, 255, 255, 0.6);
+  /* --btn-bg-hover: rgba(185, 28, 38, 0.2); */
+  --btn-bg-hover: rgba(0, 0, 0, 0.05);
+  /* --imp-bg-color: #B91C1C; Warna background merah gelap */
+  --imp-border-color: #333333;
+  /* --imp-border-color: #DC2626; Warna border merah */
+  --imp-bg-color: #B91C1C;
+
+  --btn-shadow: rgba(0, 0, 0, 0.1); 
+  --btn-shadow-hover: rgba(0, 0, 0, 0.2);
 }
 
 /* Interactive Avatar Enhancements */

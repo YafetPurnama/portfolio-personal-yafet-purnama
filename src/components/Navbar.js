@@ -150,6 +150,16 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
+                to="/certificates"
+                onClick={() => updateExpanded(false)}
+              >
+                <ImBlog style={{ marginBottom: "2px" }} /> {currentTranslations.certificates || (language === 'id' ? 'Sertifikat' : 'Certificates')}
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
                 to="/resume"
                 onClick={() => updateExpanded(false)}
               >
@@ -220,7 +230,7 @@ function NavBar() {
                 </div>
               )} */}
             {/* </Nav.Item> */} 
-            <Nav.Item ref={themeDropdownRef}>
+            <Nav.Item className="fork-btn" ref={themeDropdownRef} style={{ position: 'relative' }}>
               <Button 
                 className="fork-btn-inner" 
                 onClick={() => setShowThemeDropdown(!showThemeDropdown)}
