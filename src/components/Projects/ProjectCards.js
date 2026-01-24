@@ -16,7 +16,7 @@ function ProjectCards(props) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const hasPreview = Array.isArray(previewImages) && previewImages.length > 0;
-  const showSkeleton = loading || !isImageLoaded;
+  // const showSkeleton = loading || !isImageLoaded;
 
   const openPreview = () => {
     if (!hasPreview) return;
