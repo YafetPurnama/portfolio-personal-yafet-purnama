@@ -1617,11 +1617,18 @@ button:focus {
 }
 
 /* Dark theme tweaks for modal borders and close button */
+/* LETAK PERBAIKAN BORDER CONTAINER MODAL MUNCUL SAAT DARK THEME ACTIVE */
 [data-theme='dark'] .modal-content {
+  /* border: 1px solid rgba(220, 38, 38, 0.25) !important; -- OLD -- */
+
+  /* -- FIX -- */
+  background-color: #1a0f0f !important; 
   border: 1px solid rgba(220, 38, 38, 0.25) !important;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.9) !important;
 }
 [data-theme='dark'] .modal-header,
 [data-theme='dark'] .modal-footer {
+  /* border-color: rgba(220, 38, 38, 0.15) !important; */
   border-color: rgba(220, 38, 38, 0.15) !important;
 }
 [data-theme='dark'] .btn-close {

@@ -195,6 +195,15 @@
   color: var(--text-color);
 }
 
+/* Ensure modal content is scrollable and centered so PDF isn't cut off */
+.certificate-modal .modal-body {
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .certificate-full {
   width: 100%;
   height: auto;
@@ -207,6 +216,11 @@
   border-radius: 8px;
 }
 
+/* Constrain PDF viewer width to avoid overflow inside modal */
+.pdf-viewer {
+  max-width: 960px;
+}
+
 @media (max-width: 767px) {
   .certificate-section {
     padding-top: 120px;
@@ -215,4 +229,168 @@
   .pdf-thumb {
     height: 200px;
   }
+}
+
+/* --- [NEW] PDF Navigation Styles --- */
+
+.pdf-viewer-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pdf-viewer {
+  /* Pastikan relative agar overlay jika diperlukan */
+  position: relative;
+  width: 100%;
+
+  /* Pastikan overflow hidden agar tombol tidak keluar dari radius border jika ada */
+  /* overflow: hidden; 
+  border-radius: 8px; */
+}
+
+/* .pdf-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 15px; 
+  margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 8px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+} */
+
+.pdf-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  z-index: 10;
+  padding: 0;
+  background: transparent;
+  border: none;
+  margin: 0;
+}
+
+/* Tombol Panah */
+.pdf-nav-btn {
+  pointer-events: auto; /* Aktifkan kembali klik hanya untuk tombol */
+  background: rgba(255, 255, 255, 0.8); /* Semi transparan putih agar terlihat di PDF gelap/terang */
+  color: var(--imp-text-color);
+  border: 1px solid rgba(0,0,0,0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  /* Positioning Absolute untuk menempel di sisi */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.pdf-nav-btn.prev-btn {
+  left: 15px;
+  padding-right: 3px; /* Optical adjustment icon */
+}
+
+.pdf-nav-btn.next-btn {
+  right: 15px;
+  padding-left: 3px; /* Optical adjustment icon */
+}
+
+.pdf-nav-btn:hover:not(:disabled) {
+  background: var(--imp-text-color);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1); /* Pertahankan centering saat scale */
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.4);
+  border-color: transparent;
+}
+
+/* .pdf-nav-btn:hover:not(:disabled) {
+  background: var(--imp-text-color-hover);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px var(--card-shadow);
+} */
+
+.pdf-nav-btn:disabled {
+  /* background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5; */
+  background: rgba(200, 200, 200, 0.5);
+  color: #888;
+  cursor: default;
+  box-shadow: none;
+  opacity: 0;
+}
+
+/* Teks Indikator Halaman */
+.page-info {
+  /* font-weight: 600;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  min-width: 80px;
+  text-align: center; */
+
+  pointer-events: auto;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 575px) {
+  .pdf-controls {
+    gap: 12px;
+    padding: 6px 12px;
+  }
+  .pdf-nav-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+  .page-info {
+    font-size: 0.85rem;
+    min-width: 70px;
+  }
+}
+
+/* Dark Mode Adjustments */
+[data-theme='dark'] .pdf-controls {
+  /* background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1); */
+  background: rgba(30, 30, 30, 0.8);
+  border-color: rgba(255,255,255,0.1);
+}
+
+[data-theme='dark'] .pdf-nav-btn:disabled {
+  /* background: #444;
+  color: #888; */
+  background: var(--imp-text-color);
+  color: #fff;
 }

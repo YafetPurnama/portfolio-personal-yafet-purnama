@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Container, Row, Col, Modal } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Container, Row, Col, Modal, Button } from "react-bootstrap";
 import Particle from "../Particle";
 import { Document, Page, pdfjs } from "react-pdf";
 import { useTheme } from "../../context/ThemeContext";
@@ -29,6 +29,11 @@ function Certificates() {
   };
 
   const [selected, setSelected] = useState(null);
+
+  // [NEW] State untuk Multi-page PDF
+  const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+
   // const certificates = certificateItems;
   const certificates = [...certificateItems].sort((a, b) => {
     // Logika: Tanggal B dikurang Tanggal A = Descending (Terbaru ke Terlama)
@@ -41,6 +46,21 @@ function Certificates() {
     const d = new Date(val);
     if (isNaN(d.getTime())) return val; 
     return d.toLocaleDateString(locale, { year: 'numeric', month: 'long', day: 'numeric' });
+  };
+
+  // [NEW] Fungsi saat PDF berhasil di-load
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+    setPageNumber(1); // Reset ke halaman 1 setiap kali buka sertifikat baru
+  }
+
+  // [NEW] Fungsi Ganti Halaman
+  const changePage = (offset) => {
+    setPageNumber((prevPage) => {
+      const next = prevPage + offset;
+      if (!numPages) return prevPage;
+      return Math.min(Math.max(next, 1), numPages);
+    });
   };
 
   return (
@@ -98,7 +118,8 @@ function Certificates() {
       {/* MODAL SECTION */}
       <Modal
         show={!!selected}
-        onHide={() => setSelected(null)}
+        // onHide={() => setSelected(null)}
+        onHide={() => { setSelected(null); setPageNumber(1); }}
         // size="xl"
         size="lg"
         centered
@@ -111,12 +132,42 @@ function Certificates() {
           {selected?.type === "image" ? (
             <img src={selected.src} alt={selected.title} className="certificate-full" />
           ) : selected ? (
+              
             <div className="pdf-viewer">
-                <Document file={selected.src} className="d-flex justify-content-center">
+                <Document
+                  file={selected.src}
+                  className="d-flex justify-content-center"
+                  onLoadSuccess={onDocumentLoadSuccess}>
                   {/* <Page pageNumber={1} scale={1.6} /> */}
-                <Page pageNumber={1} width={600} renderTextLayer={false} renderAnnotationLayer={false} />
-              </Document>
-            </div>
+                <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} />
+                </Document>
+
+                {numPages > 1 && (
+                <div className="pdf-controls">
+                  <button 
+                    className="pdf-nav-btn prev-btn" 
+                    disabled={pageNumber <= 1} 
+                    onClick={() => changePage(-1)}
+                  >
+                    &#8249; {/* Left Arrow Symbol */}
+                  </button>
+                  
+                  <span className="page-info">
+                    Page {pageNumber} of {numPages}
+                  </span>
+
+                  <button 
+                    className="pdf-nav-btn next-btn" 
+                    disabled={pageNumber >= numPages} 
+                    onClick={() => changePage(1)}
+                  >
+                    &#8250; {/* Right Arrow Symbol */}
+                  </button>
+                </div>
+              )}
+
+              </div>
+              
           ) : null}
 
           {selected && (
@@ -153,21 +204,25 @@ function Certificates() {
                     <span className="meta-value">{formatDate(selected.issueDate)}</span>
                   </div>
                 )}
-                {/* {formatDate(selected.expiryDate) && (
+                {formatDate(selected.expiryDate) && (
                   <div className="meta-row">
                     <span className="meta-label">{labels.meta.expiryDate}</span>
                     <span className="meta-value">{formatDate(selected.expiryDate)}</span>
                   </div>
-                )} */}
+                )}
                 
-                {/* PERBAIKAN: Hapus class 'meta-description' di sini agar teks tidak terpotong di Modal */}
+                
                 {selected.description && (
                   // <div className="meta-row meta-description">
-                  <div className="meta-row" style={{ flexDirection: 'column', gap: '5px' }}>
-                    <span className="meta-label">{labels.meta.description}</span>
+                  <div className="meta-row" >
+                    <span className="meta-label">{labels.meta.description}</span> {/* style={{ flexDirection: 'column', gap: '5px' }} */}
                     {/* <span className="meta-value">{selected.description}</span> */}
-                    <span className="meta-value" style={{ textAlign: 'left', whiteSpace: 'pre-wrap' }}>
-                      {selected.description}
+                    <span className="meta-value" > {/* style={{ textAlign: 'left', whiteSpace: 'pre-wrap' }} */}
+                      {/* {selected.description} */}
+                      {typeof selected.description === 'object' 
+                        ? (language === 'id' ? selected.description.id : selected.description.en)
+                        : selected.description
+                      }
                     </span>
                   </div>
                 )}
