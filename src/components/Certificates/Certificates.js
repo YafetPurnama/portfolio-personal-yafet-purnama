@@ -7,6 +7,8 @@ import { translations } from "../../translations/translations";
 import { certificateItems } from "./data";
 import "./Certificates.css";
 
+import SkeletonElement, { SkeletonCertificate } from "../Skeleton";
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function Certificates() {
@@ -29,8 +31,9 @@ function Certificates() {
   };
 
   const [selected, setSelected] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  // [NEW] State untuk Multi-page PDF
+  // [NEW] untuk Multi-page PDF
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -51,7 +54,7 @@ function Certificates() {
   // [NEW] Fungsi saat PDF berhasil di-load
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
-    setPageNumber(1); // Reset ke halaman 1 setiap kali buka sertifikat baru
+    setPageNumber(1);
   }
 
   // [NEW] Fungsi Ganti Halaman
@@ -63,6 +66,13 @@ function Certificates() {
     });
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1200); // Loading selama 1.2 detik
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <Container fluid className="certificate-section">
       <Particle />
@@ -71,7 +81,14 @@ function Certificates() {
         <p className="project-subtext">{labels.subtext}</p>
         
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          {certificates.length === 0 ? (
+        {loading ? (
+            [...Array(6)].map((_, index) => (
+                <Col md={4} className="certificate-card" key={index}>
+                    <SkeletonCertificate />
+                </Col>
+            ))
+          ) : (   
+          certificates.length === 0 ? (
             <div className="certificate-empty">{labels.empty}</div>
           ) : (
             certificates.map((cert) => (
@@ -81,36 +98,40 @@ function Certificates() {
                   role="button"
                   onClick={() => setSelected(cert)}
                 >
-                  {cert.type === "image" ? (
-                    <img src={cert.src} alt={cert.title} className="certificate-thumb" />
-                  ) : (
-                    <div className="pdf-thumb">
-                      <Document file={cert.src} className="d-flex justify-content-center">
+                {cert.type === "image" ? (
+                  <img src={cert.src} alt={cert.title} className="certificate-thumb" />
+                ) : (
+                  <div className="pdf-thumb">
+                        <Document file={cert.src} className="d-flex justify-content-center"
+                        loading={
+                                <div style={{height: '220px', width: '100%', background: '#f0f0f0'}}>
+                                    <SkeletonElement type="thumbnail" style={{height: '100%'}}/>
+                                </div>
+                            }>
                         <Page pageNumber={1} width={350} renderTextLayer={false} renderAnnotationLayer={false} />
                       </Document>
                     </div>
+                )}
+                <div className="certificate-title">{cert.title}</div>
+                {/* Tampilan Meta di Card (Hanya Issuer & Date) */}
+                <div className="certificate-meta">
+                  {cert.issuer && (
+                    <div className="meta-row">
+                      <span className="meta-label">{labels.meta.issuer}</span>
+                      <span className="meta-value">{cert.issuer}</span>
+                    </div>
                   )}
-                  
-                  <div className="certificate-title">{cert.title}</div>
-                  
-                  {/* Tampilan Meta di Card (Hanya Issuer & Date) */}
-                  <div className="certificate-meta">
-                    {cert.issuer && (
-                      <div className="meta-row">
-                        <span className="meta-label">{labels.meta.issuer}</span>
-                        <span className="meta-value">{cert.issuer}</span>
-                      </div>
-                    )}
-                    {cert.issueDate && (
-                      <div className="meta-row">
-                        <span className="meta-label">{labels.meta.issueDate}</span>
-                        <span className="meta-value">{formatDate(cert.issueDate)}</span>
-                      </div>
-                    )}
-                  </div>
+                  {cert.issueDate && (
+                    <div className="meta-row">
+                      <span className="meta-label">{labels.meta.issueDate}</span>
+                      <span className="meta-value">{formatDate(cert.issueDate)}</span>
+                    </div>
+                  )}
                 </div>
-              </Col>
+              </div>
+            </Col>
             ))
+          )
           )}
         </Row>
       </Container>
@@ -137,10 +158,16 @@ function Certificates() {
                 <Document
                   file={selected.src}
                   className="d-flex justify-content-center"
-                  onLoadSuccess={onDocumentLoadSuccess}>
+                  onLoadSuccess={onDocumentLoadSuccess}
+                  loading={
+                      <div style={{ width: '100%', padding: '20px', display: 'flex', justifyContent: 'center' }}>
+                          <SkeletonElement type="thumbnail" style={{ width: '500px', height: '350px' }} />
+                      </div>
+                    }
+                  >
                   {/* <Page pageNumber={1} scale={1.6} /> */}
-                <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} />
-                </Document>
+                  <Page pageNumber={pageNumber} renderTextLayer={false} renderAnnotationLayer={false} />
+                  </Document>
 
                 {numPages > 1 && (
                 <div className="pdf-controls">
@@ -165,7 +192,6 @@ function Certificates() {
                   </button>
                 </div>
               )}
-
               </div>
               
           ) : null}

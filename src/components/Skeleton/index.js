@@ -64,4 +64,40 @@ export const SkeletonButton = ({ width = '140px', height = '50px', className = '
   );
 };
 
+export const SkeletonCertificate = () => {
+  return (
+    <div className="skeleton-wrapper" style={{ height: '100%', marginBottom: '30px' }}>
+      <div className="skeleton-card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+        {/* Bagian Thumbnail PDF */}
+        <SkeletonElement 
+            type="thumbnail" 
+            style={{ height: '220px', width: '100%', borderRadius: '5px 5px 0 0' }} 
+        />
+        
+        {/* Bagian Content (Title & Meta) */}
+        <div className="skeleton-content" style={{ padding: '15px', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          
+          {/* Title Placeholder */}
+          <div style={{ marginBottom: '15px' }}>
+            <SkeletonElement type="title" style={{ height: '24px', marginBottom: '8px' }} />
+            <SkeletonElement type="text" style={{ width: '60%', height: '24px' }} />
+          </div>
+
+          {/* Meta Data Placeholder (Issuer & Date) */}
+          <div style={{ marginTop: 'auto' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
+              <SkeletonElement type="text" style={{ width: '30%', height: '14px' }} />
+              <SkeletonElement type="text" style={{ width: '30%', height: '14px' }} />
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <SkeletonElement type="text" style={{ width: '40%', height: '14px' }} />
+              <SkeletonElement type="text" style={{ width: '40%', height: '14px' }} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default SkeletonElement;
