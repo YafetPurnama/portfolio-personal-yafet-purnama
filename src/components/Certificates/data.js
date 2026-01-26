@@ -16,6 +16,9 @@ import CareerSkillSpacePdf from "../../Assets/Projects/Certificate-CareerPrep-Sk
 // [NEW] Import CAP Certificate
 import CapAccuratePdf from "../../Assets/Projects/Certificate-Accurate-Professional-CAP.pdf";
 
+import GoogleDataFoundationsPdf from "../../Assets/Projects/Certificate-Google-Foundations-Data.pdf";
+import BtdBasic from "../../Assets/Projects/Certificate - Chinese Language Conversation Basic (Score 95).pdf";
+
 export const certificateItems = [
   {
     id: "cap-accurate-professional",
@@ -33,6 +36,36 @@ export const certificateItems = [
       id: "Sertifikasi keahlian perangkat lunak akuntansi Accurate Online. Mencakup pelatihan komprehensif (Sep-Des 2025) yang meliputi pelaporan keuangan, manajemen buku besar, dan alur kerja perpajakan."
     }
   },
+  {
+    id: "btd-basic-certificate",
+    title: "Chinese Language Conversation Program (Basic Level)",
+    issuer: "Widya kartika University Surabaya",
+    type: "pdf",
+    src: BtdBasic,
+    credentialId: "11.311.2526.032",
+    credentialUrl: "",
+    issueDate: "2026-01-14",
+    expiryDate: null, 
+    description: {
+      en: "Completed an intensive foreign language program focused on Chinese (Mandarin) conversation skills provided by the Faculty of Letters and Language Education. Achievement: • Grade: Excellent (95/100) - Predicate: '优' (Yōu). • Demonstrated strong aptitude in basic conversational Mandarin, enhancing cross-cultural communication readiness for global tech environments.",
+      id: "Telah menyelesaikan program intensif bahasa asing yang berfokus pada keterampilan percakapan Bahasa Mandarin, diselenggarakan oleh Fakultas Sastra dan Pendidikan Bahasa. Pencapaian: • Nilai: Sangat Baik (95/100) – Predikat: “优 (Yōu)” • Menunjukkan kemampuan yang kuat dalam percakapan dasar Bahasa Mandarin, serta meningkatkan kesiapan komunikasi lintas budaya untuk lingkungan teknologi global."
+    }
+  },
+  {
+  id: "google-data-foundations",
+  title: "Foundations: Data, Data, Everywhere",
+  issuer: "Google",
+  type: "pdf",
+  src: GoogleDataFoundationsPdf,
+  credentialId: "7DYJW6C9RNE0", // [cite: 18]
+  credentialUrl: "https://www.coursera.org/account/accomplishments/records/7DYJW6C9RNE0",
+  issueDate: "2026-01-26", // [cite: 3]
+  expiryDate: null,
+  description: {
+    en: "Mastered the basics of data analytics, including the role of data in decision-making, the data life cycle, and common tools like spreadsheets and SQL.",
+    id: "Menguasai dasar-dasar analisis data, termasuk peran data dalam pengambilan keputusan, siklus hidup data, serta alat bantu umum seperti spreadsheet dan SQL."
+  }
+},
   {
     id: "backend-development-myskill",
     title: "Website Development: Back End",
