@@ -56,7 +56,7 @@ export const certificateItems = [
   {
     id: "computers-operating-systems-security",
     title: "Introduction to Computers and Operating Systems and Security",
-    issuer: "Google",
+    issuer: "Microsoft",
     type: "pdf",
     src: ComputersOperating,
     credentialId: "D227GY4ADKUV",
