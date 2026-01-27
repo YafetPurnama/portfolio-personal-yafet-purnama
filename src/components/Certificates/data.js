@@ -19,6 +19,8 @@ import CapAccuratePdf from "../../Assets/Projects/Certificate-Accurate-Professio
 import GoogleDataFoundationsPdf from "../../Assets/Projects/Certificate-Google-Foundations-Data.pdf";
 import BtdBasic from "../../Assets/Projects/Certificate - Chinese Language Conversation Basic (Score 95).pdf";
 
+import ComputersOperating from "../../Assets/Projects/Certificate-Google-Introduction to Computers and Operating Systems and Security.pdf";
+
 export const certificateItems = [
   {
     id: "cap-accurate-professional",
@@ -49,6 +51,21 @@ export const certificateItems = [
     description: {
       en: "Completed an intensive foreign language program focused on Chinese (Mandarin) conversation skills provided by the Faculty of Letters and Language Education. Achievement: • Grade: Excellent (95/100) - Predicate: '优' (Yōu). • Demonstrated strong aptitude in basic conversational Mandarin, enhancing cross-cultural communication readiness for global tech environments.",
       id: "Telah menyelesaikan program intensif bahasa asing yang berfokus pada keterampilan percakapan Bahasa Mandarin, diselenggarakan oleh Fakultas Sastra dan Pendidikan Bahasa. Pencapaian: • Nilai: Sangat Baik (95/100) – Predikat: “优 (Yōu)” • Menunjukkan kemampuan yang kuat dalam percakapan dasar Bahasa Mandarin, serta meningkatkan kesiapan komunikasi lintas budaya untuk lingkungan teknologi global."
+    }
+  },
+  {
+    id: "computers-operating-systems-security",
+    title: "Introduction to Computers and Operating Systems and Security",
+    issuer: "Google",
+    type: "pdf",
+    src: ComputersOperating,
+    credentialId: "D227GY4ADKUV",
+    credentialUrl: "https://www.coursera.org/account/accomplishments/records/D227GY4ADKUV",
+    issueDate: "2026-01-27",
+    expiryDate: null, 
+    description: {
+      en: "Successfully completed the 'Introduction to Computers and Operating Systems and Security' course authorized by Microsoft. This comprehensive program strengthened my foundational knowledge in: • System Architecture: Understanding the core interaction between hardware and software components. • Operating Systems: Managing and configuring Windows, Linux, and macOS environments. • Cybersecurity Fundamentals: Implementing security protocols to protect systems against common vulnerabilities and threats. • System Administration: Best practices for software updates, file systems, and user management. This certification reinforces my commitment to maintaining secure and efficient computing environments.",
+      id: "Telah berhasil menyelesaikan kursus 'Introduction to Computers and Operating Systems and Security' yang diotorisasi oleh Microsoft. Program komprehensif ini memperkuat pengetahuan fundamental saya dalam: • Arsitektur Sistem: Memahami interaksi inti antara komponen perangkat keras (hardware) dan perangkat lunak (software). • Sistem Operasi: Mengelola dan mengonfigurasi lingkungan Windows, Linux, dan macOS. • Dasar Keamanan Siber: Menerapkan protokol keamanan untuk melindungi sistem dari kerentanan dan ancaman umum. • Administrasi Sistem: Praktik terbaik untuk pembaruan perangkat lunak, sistem file, dan manajemen pengguna. Sertifikasi ini memperkuat komitmen saya dalam menjaga lingkungan komputasi yang aman dan efisien."
     }
   },
   {
