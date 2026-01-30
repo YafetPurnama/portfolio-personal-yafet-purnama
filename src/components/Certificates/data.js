@@ -21,6 +21,8 @@ import BtdBasic from "../../Assets/Projects/Certificate - Chinese Language Conve
 
 import ComputersOperating from "../../Assets/Projects/Certificate-Google-Introduction to Computers and Operating Systems and Security.pdf";
 
+import GoogleFoundationsBIPdf from "../../Assets/Projects/Certificate-Google-Foundations-BI.pdf";
+
 export const certificateItems = [
   {
     id: "cap-accurate-professional",
@@ -36,6 +38,22 @@ export const certificateItems = [
       // "Certified proficiency in Accurate Online accounting software. Includes comprehensive training (Sep-Dec 2025) covering financial reporting, ledger management, and taxation workflows.",
       en: "Certified proficiency in Accurate Online accounting software. Includes comprehensive training (Sep-Dec 2025) covering financial reporting, ledger management, and taxation workflows.",
       id: "Sertifikasi keahlian perangkat lunak akuntansi Accurate Online. Mencakup pelatihan komprehensif (Sep-Des 2025) yang meliputi pelaporan keuangan, manajemen buku besar, dan alur kerja perpajakan."
+    }
+  },
+  {
+    id: "google-foundations-bi",
+    title: "Foundations of Business Intelligence",
+    issuer: "Google",
+    type: "pdf",
+    src: GoogleFoundationsBIPdf,
+    credentialId: "RZAKTWM3G4CB",
+    credentialUrl: "https://www.coursera.org/verify/RZAKTWM3G4CB",
+    // https://coursera.org/share/b5b12a3e00fee73cc94cd40ab7767215
+    issueDate: "2026-01-30",
+    expiryDate: null,
+    description: {
+      en: "Completed a professional module by Google focusing on the intersection of Data Analytics and Business Intelligence. Mastered the skills to leverage data for driving business growth, understanding stakeholder needs, and applying structured thinking to solve business problems.",
+      id: "Menyelesaikan modul profesional dari Google yang berfokus pada persimpangan antara Analisis Data dan Intelijen Bisnis. Menguasai keterampilan memanfaatkan data untuk mendorong pertumbuhan bisnis, memahami kebutuhan pemangku kepentingan (stakeholder), dan menerapkan pemikiran terstruktur untuk memecahkan masalah bisnis."
     }
   },
   {
