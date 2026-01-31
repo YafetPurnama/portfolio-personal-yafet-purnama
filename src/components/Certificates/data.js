@@ -23,6 +23,9 @@ import ComputersOperating from "../../Assets/Projects/Certificate-Google-Introdu
 
 import GoogleFoundationsBIPdf from "../../Assets/Projects/Certificate-Google-Foundations-BI.pdf";
 
+import GoogleFoundationsCybersecurityPdf from "../../Assets/Projects/Certificate-Google-Foundations-Cybersecurity.pdf";
+import RevoUMarketingPdf from "../../Assets/Projects/Certificate-Digital-Marketing-RevoU.pdf";
+
 export const certificateItems = [
   {
     id: "cap-accurate-professional",
@@ -38,6 +41,36 @@ export const certificateItems = [
       // "Certified proficiency in Accurate Online accounting software. Includes comprehensive training (Sep-Dec 2025) covering financial reporting, ledger management, and taxation workflows.",
       en: "Certified proficiency in Accurate Online accounting software. Includes comprehensive training (Sep-Dec 2025) covering financial reporting, ledger management, and taxation workflows.",
       id: "Sertifikasi keahlian perangkat lunak akuntansi Accurate Online. Mencakup pelatihan komprehensif (Sep-Des 2025) yang meliputi pelaporan keuangan, manajemen buku besar, dan alur kerja perpajakan."
+    }
+  },
+  {
+    id: "revou-digital-marketing",
+    title: "Intro to Digital Marketing",
+    issuer: "RevoU",
+    type: "pdf",
+    src: RevoUMarketingPdf,
+    credentialId: null,
+    credentialUrl: "https://certificates.revou.co/yafet-purnama-certificate-completion-dmmc22.pdf",
+    issueDate: "2022-04-08",
+    expiryDate: null,
+    description: {
+      en: "Gained foundational knowledge in Digital Marketing, including SEO (Search Engine Optimization), Social Media Marketing, and Analytics. This knowledge enhances my ability to build SEO-friendly websites and understand user acquisition funnels.",
+      id: "Memperoleh pengetahuan dasar dalam Pemasaran Digital, termasuk SEO (Search Engine Optimization), Pemasaran Media Sosial, dan Analitik. Pengetahuan ini meningkatkan kemampuan saya untuk membangun situs web yang ramah SEO dan memahami corong akuisisi pengguna."
+    }
+  },
+  {
+    id: "google-foundations-cybersecurity",
+    title: "Foundations of Cybersecurity",
+    issuer: "Google",
+    type: "pdf",
+    src: GoogleFoundationsCybersecurityPdf,
+    credentialId: "M7S7H8YBMAK1",
+    credentialUrl: "https://www.coursera.org/verify/M7S7H8YBMAK1",
+    issueDate: "2026-01-31",
+    expiryDate: null,
+    description: {
+      en: "Acquired foundational knowledge in cybersecurity principles, identifying common threats, risks, and vulnerabilities. Understood the core functions of the NIST Cybersecurity Framework and the importance of ethics in security operations.",
+      id: "Memperoleh pengetahuan dasar prinsip keamanan siber, mengidentifikasi ancaman umum, risiko, dan kerentanan. Memahami fungsi inti Kerangka Kerja Keamanan Siber NIST dan pentingnya etika dalam operasi keamanan."
     }
   },
   {
