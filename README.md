@@ -10,9 +10,11 @@ Portfolio pribadi yang dibuat dengan React untuk menampilkan profil, proyek, kea
 ---
 
 ### Demo
-- My personal portfolio: <a href="" target="_blank">Link</a>
+
+- My personal portfolio: <a href="" target="https://portfolio-yafetpurnama.vercel.app/">Link</a>
 
 ## Teknologi
+
 - React 17 (Create React App)
 - React Bootstrap 2 + CSS3
 - React Router DOM 6
@@ -23,12 +25,14 @@ Portfolio pribadi yang dibuat dengan React untuk menampilkan profil, proyek, kea
 - Vercel (deployment)
 
 ## Fitur
+
 - Tata letak multi-halaman (Home, About, Projects, Resume)
 - Tema modern, responsif untuk mobile/desktop
 - Komponen mudah disesuaikan (React + Bootstrap)
 - Siap deploy di Vercel (konfigurasi SPA sudah tersedia)
 
 ## Struktur Proyek (ringkas)
+
 ```
 src/
   components/
@@ -39,31 +43,38 @@ src/
 ```
 
 ## Mulai Cepat
+
 Prasyarat: Node.js 16+ dan npm.
 
-1) Install dependencies
+1. Install dependencies
+
 ```
 npm install
 ```
 
-2) Jalankan pengembangan
+2. Jalankan pengembangan
+
 ```
 npm start
 ```
+
 Lalu buka `http://localhost:3000`.
 
-3) Build untuk produksi
+3. Build untuk produksi
+
 ```
 npm run build
 ```
 
 ## Skrip NPM
+
 - `start`: Menjalankan dev server CRA
 - `dev`: Menjalankan dev server tanpa auto-open browser
 - `build`: Build produksi
 - `test`: Menjalankan pengujian
 
 ## Kustomisasi Konten
+
 - Profil & hero: `src/components/Home/Home.js`
 - Tentang saya: `src/components/About/About.js` dan `AboutCard.js`
 - Proyek: `src/components/Projects/Projects.js` dan `ProjectCards.js`
@@ -74,16 +85,20 @@ npm run build
 - Aset: `src/Assets/` (gambar, ikon, PDF)
 
 ## Deploy ke Vercel
+
 Konfigurasi SPA sudah disiapkan di `vercel.json`.
 
 Langkah cepat:
-1) Push ke repository GitHub/GitLab
-2) Import project di Vercel
-3) Build Command: `npm run build`
-4) Output Directory: `build`
+
+1. Push ke repository GitHub/GitLab
+2. Import project di Vercel
+3. Build Command: `npm run build`
+4. Output Directory: `build`
 
 ## Kredit
+
 Proyek ini terinspirasi dan diadaptasi dari karya open-source milik Soumyajit (soumyajit4419). Terima kasih untuk fondasi proyek yang solid.
 
 ## Dukung
+
 Jika suka proyek ini, silakan beri ⭐ dan bagikan. Terima kasih!

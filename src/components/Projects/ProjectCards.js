@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { CgWebsite } from "react-icons/cg";
-import { BsGithub, BsEye } from "react-icons/bs";
+import { BsGithub, BsEye, BsFileEarmarkPdf, BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { SkeletonElement, SkeletonText } from "../Skeleton";
 
@@ -14,6 +14,15 @@ function ProjectCards(props) {
   const [previewIndex, setPreviewIndex] = useState(0);
   const [animateKey, setAnimateKey] = useState(0);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [showPdfModal, setShowPdfModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const hasPreview = Array.isArray(previewImages) && previewImages.length > 0;
   // const showSkeleton = loading || !isImageLoaded;
@@ -44,43 +53,43 @@ function ProjectCards(props) {
   if (loading) {
     return (
       <Card className="project-card-view skeleton-card">
-        <SkeletonElement 
-          type="thumbnail" 
-          style={{ 
-            width: '100%', 
+        <SkeletonElement
+          type="thumbnail"
+          style={{
+            width: '100%',
             height: '200px',
             borderRadius: '8px 8px 0 0'
-          }} 
+          }}
         />
         <Card.Body>
-          <SkeletonElement 
-            type="title" 
-            style={{ 
-              width: '80%', 
-              height: '28px', 
+          <SkeletonElement
+            type="title"
+            style={{
+              width: '80%',
+              height: '28px',
               marginBottom: '15px',
               borderRadius: '4px'
-            }} 
+            }}
           />
           <div style={{ marginBottom: '20px' }}>
             <SkeletonText lines={3} />
           </div>
           <div style={{ display: 'flex', gap: '10px' }}>
-            <SkeletonElement 
-              type="button" 
-              style={{ 
-                width: '100px', 
+            <SkeletonElement
+              type="button"
+              style={{
+                width: '100px',
                 height: '38px',
                 borderRadius: '4px'
-              }} 
+              }}
             />
-            <SkeletonElement 
-              type="button" 
-              style={{ 
-                width: '100px', 
+            <SkeletonElement
+              type="button"
+              style={{
+                width: '100px',
                 height: '38px',
                 borderRadius: '4px'
-              }} 
+              }}
             />
           </div>
         </Card.Body>
@@ -92,15 +101,15 @@ function ProjectCards(props) {
     <>
       <Card className="project-card-view">
         {!isImageLoaded && (
-          <SkeletonElement 
-            type="thumbnail" 
-            style={{ 
-              width: '100%', 
+          <SkeletonElement
+            type="thumbnail"
+            style={{
+              width: '100%',
               height: '200px',
               borderRadius: '8px 8px 0 0',
               position: 'absolute',
               zIndex: 1
-            }} 
+            }}
           />
         )}
         <Card.Img
@@ -161,6 +170,16 @@ function ProjectCards(props) {
               <BsEye /> &nbsp;View
             </Button>
           )}
+          {props.pdfLink && (
+            <Button
+              variant="primary"
+              onClick={() => setShowPdfModal(true)}
+              style={{ marginLeft: "10px", marginTop: "10px" }}
+            >
+              <BsFileEarmarkPdf /> &nbsp;
+              {props.pdfButtonText || "View Report"}
+            </Button>
+          )}
         </Card.Body>
       </Card>
 
@@ -194,6 +213,82 @@ function ProjectCards(props) {
                 Begin
               </Button>
             )}
+          </Modal.Footer>
+        </Modal>
+      )}
+
+      {/* PDF Viewer Modal */}
+      {props.pdfLink && (
+        <Modal
+          show={showPdfModal}
+          onHide={() => setShowPdfModal(false)}
+          size="xl"
+          centered
+          dialogClassName="pdf-viewer-modal"
+          aria-labelledby="pdf-viewer-title"
+          backdropClassName="modal-backdrop-blur"
+        >
+          <Modal.Header closeButton className="pdf-modal-header">
+            <Modal.Title id="pdf-viewer-title">
+              <BsFileEarmarkPdf style={{ marginRight: 8 }} />
+              {props.title}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="pdf-modal-body">
+            {!isMobile ? (
+              <iframe
+                src={props.pdfLink}
+                title={`${props.title} - PDF Report`}
+                className="pdf-iframe"
+              />
+            ) : (
+              <div className="pdf-mobile-fallback">
+                <div className="pdf-mobile-icon">
+                  <BsFileEarmarkPdf />
+                </div>
+                <h5>{props.title}</h5>
+                <p className="pdf-mobile-text">
+                  {props.pdfMobileText || "Tap the button below to open or download the PDF report."}
+                </p>
+                <div className="pdf-mobile-actions">
+                  <Button
+                    variant="primary"
+                    href={props.pdfLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="pdf-mobile-btn"
+                  >
+                    <BsBoxArrowUpRight /> &nbsp;
+                    {props.pdfOpenText || "Open PDF"}
+                  </Button>
+                  <Button
+                    variant="outline-primary"
+                    href={props.pdfLink}
+                    download
+                    className="pdf-mobile-btn"
+                  >
+                    <BsDownload /> &nbsp;
+                    {props.pdfDownloadText || "Download PDF"}
+                  </Button>
+                </div>
+              </div>
+            )}
+          </Modal.Body>
+          <Modal.Footer className="pdf-modal-footer">
+            {!isMobile && (
+              <Button
+                variant="outline-primary"
+                href={props.pdfLink}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsBoxArrowUpRight /> &nbsp;
+                {props.pdfOpenText || "Open in New Tab"}
+              </Button>
+            )}
+            <Button variant="secondary" onClick={() => setShowPdfModal(false)}>
+              {props.closeText || "Close"}
+            </Button>
           </Modal.Footer>
         </Modal>
       )}

@@ -5,13 +5,13 @@ export const translations = {
     about: 'About',
     projects: 'Projects',
     resume: 'Resume',
-    
+
     // Hero Section
     greeting: 'Hi!',
     greeting_emoji: '👋🏻',
     name_prefix: "I'M",
     name: 'Yafet Purnama',
-    
+
     // Typewriter strings
     typewriter_strings: [
       "Software Developer",
@@ -19,11 +19,11 @@ export const translations = {
       // "Open Source Contributor",
       "Laravel & React Enthusiast"
     ],
-    
+
     // About Section
     about_title: 'LET ME INTRODUCE MYSELF',
     about_description: "I fell in love with programming and I have at least learnt something, I tried... 🤷‍♂️",
-    
+
     // About Paragraphs (Home2)
     about_fluent_prefix: 'I am fluent in classics like',
     about_fluent_tech: 'C#, PHP, Javascript and Go.',
@@ -58,7 +58,7 @@ export const translations = {
     pdf_preview_title: 'Portfolio PDF Preview',
     preview_about: 'Preview About Me',
     download_about: 'Download About Me',
-    
+
     // Footer
     footer_text: 'Made with ❤️ by Yafet Purnama',
 
@@ -66,24 +66,28 @@ export const translations = {
     project_locker_penyimpanan_desc: 'Developed a web-based digital locker management system to provide a secure and efficient storage solution. Built with a modern tech stack including Next.js 15, Drizzle ORM, and WebSockets for real-time interactions.',
 
     button_publication: 'Publication',
-    
+    button_view_report: 'View Report',
+    button_open_pdf: 'Open in New Tab',
+    button_download_report: 'Download Report',
+    pdf_mobile_text: 'Tap the button below to open or download the PDF report.',
+
     // Common
     close: 'Close',
     download: 'Download',
     preview: 'Preview',
     contact: 'Contact',
     skills: 'Skills',
-    
+
     // Projects
     project_tuku_title: 'TukuTuku Market',
     project_tuku_desc: 'A desktop groceries application for daily needs, built with C# and Windows Form Application.',
-    
+
     project_rental_title: 'Car Rental',
     project_rental_desc: 'A car rental website featuring a comprehensive booking system, built with the Laravel framework.',
-    
+
     project_rpg_title: 'Game RPG Player Uwu',
     project_rpg_desc: 'A 2D RPG desktop game created with C# and Windows Form Application, featuring characters and items. Using the Unity game engine.',
-    
+
     project_web_anugerah_title: 'Anugerah Jaya Abadi Website',
     project_web_anugerah_desc: 'Anugerah Jaya Abadi Website is a website built using WordPress CMS, equipped with the features needed for the website.',
 
@@ -105,7 +109,7 @@ export const translations = {
     message_placeholder: 'Write Your message',
 
     // About Card
-    about_card_greeting: 'Hi Everyone, I am Yafet Purnama',
+    about_card_greeting: 'Hi Everyone, I am',
     from: 'from',
     location: 'Surabaya, Indonesia.',
     about_card_status: "Informatics student with a strong foundation in computer systems, currently balancing academic pursuits with hands-on experience in a full-time professional role. This has equipped me with critical thinking and analytical skills crucial for proactively identifying and resolving system bugs, ensuring stability and optimal performance. Dedicated to becoming a high-caliber engineer, I am continuously honing my technical expertise in areas like advanced troubleshooting, UI/UX design, and modern development practices. Passionate about leveraging technology for positive impact and eager to contribute to innovative engineering teams.",
@@ -133,20 +137,20 @@ export const translations = {
     view_cv_prompt: 'Click below to see the detail CV',
 
   },
-  
+
   id: {
     // Navigation
     home: 'Beranda',
     about: 'Tentang',
     projects: 'Proyek',
     resume: 'Resume',
-    
+
     // Hero Section
     greeting: 'Hi!',
     greeting_emoji: '👋🏻',
     name_prefix: 'Nama saya',
     name: 'Yafet Purnama',
-    
+
     // Typewriter strings
     typewriter_strings: [
       "Pengembang Perangkat Lunak",
@@ -154,7 +158,7 @@ export const translations = {
       // "Kontributor Open Source",
       "Penggemar Laravel & React"
     ],
-    
+
     // About Section
     about_title: 'IZINKAN SAYA MEMPERKENALKAN DIRI',
     about_description: "Saya jatuh cinta dengan pemrograman dan saya setidaknya telah mempelajari sesuatu, saya coba... 🤷‍♂️",
@@ -193,7 +197,7 @@ export const translations = {
     pdf_preview_title: 'Pratinjau Portfolio PDF',
     preview_about: 'Pratinjau Tentang Saya',
     download_about: 'Unduh Tentang Saya',
-    
+
     // Footer
     footer_text: 'Dibuat dengan ❤️ oleh Yafet Purnama',
 
@@ -201,27 +205,31 @@ export const translations = {
     project_locker_penyimpanan_desc: 'Pengembangan sistem manajemen loker digital berbasis web untuk menyediakan solusi penyimpanan yang aman dan efisien. Dibangun menggunakan tumpukan teknologi modern termasuk Next.js 15, Drizzle ORM, dan WebSockets untuk interaksi waktu-nyata.',
 
     button_publication: 'Publikasi',
-    
+    button_view_report: 'Lihat Laporan',
+    button_open_pdf: 'Buka di Tab Baru',
+    button_download_report: 'Unduh Laporan',
+    pdf_mobile_text: 'Ketuk tombol di bawah untuk membuka atau mengunduh laporan PDF.',
+
     // Common
     close: 'Tutup',
     download: 'Unduh',
     preview: 'Pratinjau',
     contact: 'Kontak',
     skills: 'Keahlian',
-    
+
     // Projects
     project_tuku_title: 'TukuTuku Market',
     project_tuku_desc: 'Aplikasi desktop e-commerce untuk kebutuhan sehari-hari yang dibuat menggunakan C# dan Windows Form Application.',
-    
+
     project_rental_title: 'Rental Mobil',
     project_rental_desc: 'Website penyewaan mobil dengan sistem booking yang dilengkapi sistem pemesanan, dibuat menggunakan framework Laravel.',
-    
+
     project_rpg_title: 'Game RPG Player UWu',
     project_rpg_desc: 'Game 2D RPG desktop yang dibuat dengan C# dan Windows Form Application, dilengkapi dengan karakter dan item. Menggunakan game engine yaitu Unity.',
-    
+
     project_web_anugerah_title: 'Website Anugerah Jaya Abadi',
     project_web_anugerah_desc: 'Website Anugerah Jaya Abadi adalah website yang dibuat menggunakan CMS WordPress, dilengkapi dengan fitur-fitur yang dibutuhkan oleh website.',
-    
+
     project_peer_assessment_title: 'Sistem Penilaian Sejawat',
     project_peer_assessment_desc: 'Sebuah aplikasi web untuk penilaian sejawat (peer assessment) dalam lingkungan pendidikan, memungkinkan mahasiswa atau siswa untuk saling memberikan evaluasi. Dibangun dengan React 19, TypeScript, dan Tailwind CSS.',
 
@@ -240,7 +248,7 @@ export const translations = {
     message_placeholder: 'Tulis pesan Anda',
 
     // About Card
-    about_card_greeting: 'Halo semuanya, saya Yafet Purnama',
+    about_card_greeting: 'Halo semuanya, saya adalah',
     from: 'dari',
     location: 'Surabaya, Indonesia.',
     about_card_status: "Saya adalah mahasiswa Informatika dengan fondasi kuat di bidang sistem komputer, yang saat ini menyeimbangkan dunia akademis dengan pengalaman profesional secara full-time. Peran ini membekali saya dengan kemampuan berpikir kritis dan analitis untuk secara proaktif mengidentifikasi serta mengatasi bug sistem, guna memastikan stabilitas dan performa yang optimal. Dengan dedikasi untuk menjadi seorang engineer andal, saya terus mengasah keahlian teknis di berbagai area seperti advanced troubleshooting, desain UI/UX, dan praktik pengembangan modern. Saya memiliki passion untuk memanfaatkan teknologi demi menciptakan dampak positif dan sangat antusias untuk berkontribusi dalam tim engineering yang inovatif.",
@@ -254,7 +262,7 @@ export const translations = {
     days_i_code: "Hari Saya",
     code_word: "Ngoding",
     all_years: "Semua",
-    
+
     // -- TAMBAHKAN BAGIAN INI --
     about_page: {
       title_1: "Kenali Siapa",
