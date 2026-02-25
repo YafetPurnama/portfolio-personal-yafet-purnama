@@ -75,11 +75,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.06);
+  background: #f5f5f5;
+}
+
+[data-theme='dark'] .pdf-thumb {
+  background: #e8e8e8;
 }
 
 .pdf-viewer {
-  background: rgba(0, 0, 0, 0.03);
+  background: #ffffff;
   padding: 20px;
   border-radius: 8px;
   display: flex;
@@ -87,17 +91,21 @@
   margin-bottom: 20px;
 }
 
+[data-theme='dark'] .pdf-viewer {
+  background: #f0f0f0;
+}
+
 /* Responsive Canvas PDF */
 .react-pdf__Page__canvas {
   max-width: 100% !important;
   height: auto !important;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
 
 /* Override untuk Modal Description agar tidak center */
 .certificate-details .meta-row {
-    align-items: flex-start;
+  align-items: flex-start;
 }
 
 .pdf-thumb .react-pdf__Page__canvas {
@@ -137,16 +145,19 @@
   text-align: right;
   word-break: break-word;
   /* verflow-wrap: anywhere; */
-  overflow-wrap: anywhere; /* Modern browser support */
+  overflow-wrap: anywhere;
+  /* Modern browser support */
   max-width: 60%;
 }
 
 .meta-description {
   align-items: flex-start;
 }
+
 .meta-description .meta-label {
   min-width: 120px;
 }
+
 .meta-description .meta-value {
   text-align: left;
   display: -webkit-box;
@@ -160,6 +171,7 @@
   color: var(--imp-text-color);
   text-decoration: none;
 }
+
 .credential-link:hover {
   text-decoration: underline;
 }
@@ -167,13 +179,16 @@
 .certificate-details {
   margin-top: 18px;
 }
+
 .details-rows {
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 12px;
 }
+
 .meta-actions {
   margin-top: 12px;
 }
+
 .credential-btn {
   display: inline-block;
   background: var(--btn-bg);
@@ -184,6 +199,7 @@
   text-decoration: none;
   transition: all .2s ease;
 }
+
 .credential-btn:hover {
   transform: translateY(-1px);
   color: var(--imp-text-color-hover);
@@ -225,6 +241,7 @@
   .certificate-section {
     padding-top: 120px;
   }
+
   .certificate-thumb,
   .pdf-thumb {
     height: 200px;
@@ -282,10 +299,12 @@
 
 /* Tombol Panah */
 .pdf-nav-btn {
-  pointer-events: auto; /* Aktifkan kembali klik hanya untuk tombol */
-  background: rgba(255, 255, 255, 0.8); /* Semi transparan putih agar terlihat di PDF gelap/terang */
+  pointer-events: auto;
+  /* Aktifkan kembali klik hanya untuk tombol */
+  background: rgba(255, 255, 255, 0.8);
+  /* Semi transparan putih agar terlihat di PDF gelap/terang */
   color: var(--imp-text-color);
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -296,28 +315,31 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  
+
   /* Positioning Absolute untuk menempel di sisi */
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .pdf-nav-btn.prev-btn {
   left: 15px;
-  padding-right: 3px; /* Optical adjustment icon */
+  padding-right: 3px;
+  /* Optical adjustment icon */
 }
 
 .pdf-nav-btn.next-btn {
   right: 15px;
-  padding-left: 3px; /* Optical adjustment icon */
+  padding-left: 3px;
+  /* Optical adjustment icon */
 }
 
 .pdf-nav-btn:hover:not(:disabled) {
   background: var(--imp-text-color);
   color: #fff;
-  transform: translateY(-50%) scale(1.1); /* Pertahankan centering saat scale */
+  transform: translateY(-50%) scale(1.1);
+  /* Pertahankan centering saat scale */
   box-shadow: 0 6px 15px rgba(220, 38, 38, 0.4);
   border-color: transparent;
 }
@@ -352,7 +374,7 @@
   bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
-  
+
   background: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   padding: 4px 12px;
@@ -360,7 +382,7 @@
   font-size: 0.8rem;
   font-weight: 500;
   backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive adjustments for small screens */
@@ -369,11 +391,13 @@
     gap: 12px;
     padding: 6px 12px;
   }
+
   .pdf-nav-btn {
     width: 32px;
     height: 32px;
     font-size: 1.2rem;
   }
+
   .page-info {
     font-size: 0.85rem;
     min-width: 70px;
@@ -382,15 +406,141 @@
 
 /* Dark Mode Adjustments */
 [data-theme='dark'] .pdf-controls {
-  /* background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1); */
-  background: rgba(30, 30, 30, 0.8);
-  border-color: rgba(255,255,255,0.1);
+  background: transparent;
+  border-color: transparent;
 }
 
 [data-theme='dark'] .pdf-nav-btn:disabled {
-  /* background: #444;
-  color: #888; */
-  background: var(--imp-text-color);
+  background: rgba(200, 200, 200, 0.3);
+  color: #888;
+  opacity: 0;
+}
+
+/* ===== Fullscreen Lightbox Overlay ===== */
+.cert-lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  animation: lightbox-fade-in 0.25s ease;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  touch-action: pinch-zoom;
+}
+
+@keyframes lightbox-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.cert-lightbox-overlay img,
+.cert-lightbox-overlay canvas {
+  max-width: 95vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.cert-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
   color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 10000;
+}
+
+.cert-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.cert-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 10000;
+}
+
+.cert-lightbox-nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.cert-lightbox-nav.prev {
+  left: 12px;
+}
+
+.cert-lightbox-nav.next {
+  right: 12px;
+}
+
+.cert-lightbox-page-info {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+/* Tap hint on mobile */
+.pdf-tap-hint {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+  z-index: 5;
+}
+
+@media (min-width: 992px) {
+  .pdf-tap-hint {
+    display: none;
+  }
 }

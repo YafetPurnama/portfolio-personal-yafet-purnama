@@ -26,7 +26,24 @@ import GoogleFoundationsBIPdf from "../../Assets/Projects/Certificate-Google-Fou
 import GoogleFoundationsCybersecurityPdf from "../../Assets/Projects/Certificate-Google-Foundations-Cybersecurity.pdf";
 import RevoUMarketingPdf from "../../Assets/Projects/Certificate-Digital-Marketing-RevoU.pdf";
 
+import DicodingDasarAIPdf from "../../Assets/Projects/Certificate-Dicoding-Dasar-AI.pdf";
+
 export const certificateItems = [
+  {
+    id: "dicoding-dasar-ai",
+    title: "Belajar Dasar AI (Introduction to AI)",
+    issuer: "Dicoding Indonesia",
+    type: "pdf",
+    src: DicodingDasarAIPdf,
+    credentialId: "ERZRLMGV2ZYV",
+    credentialUrl: "https://www.dicoding.com/certificates/ERZRLMGV2ZYV",
+    issueDate: "2026-02-25",
+    expiryDate: "2029-02-25",
+    description: {
+      en: "Completed a comprehensive 10-hour introductory course on Artificial Intelligence supported by Google Cloud. Gained theoretical knowledge in core AI concepts, data utilization for AI, Machine Learning principles, and the fundamentals of Deep Learning.",
+      id: "Menyelesaikan kursus pengantar Kecerdasan Buatan (AI) komprehensif selama 10 jam yang didukung oleh Google Cloud. Memperoleh pengetahuan teoretis mengenai konsep inti AI, pemanfaatan data untuk AI, prinsip dasar Machine Learning, dan fundamental Deep Learning."
+    }
+  },
   {
     id: "cap-accurate-professional",
     title: "Certified ACCURATE Professional (CAP)",
