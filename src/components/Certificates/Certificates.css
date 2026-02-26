@@ -544,3 +544,252 @@
     display: none;
   }
 }
+
+/* ===== Share Icon in Modal Header ===== */
+.share-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.share-icon-btn {
+  background: transparent;
+  color: var(--imp-text-color);
+  border: none;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.share-icon-btn:hover {
+  background: rgba(220, 38, 38, 0.1);
+  color: var(--imp-text-color-hover);
+  transform: scale(1.1);
+}
+
+[data-theme='light'] .share-icon-btn:hover {
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.share-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  border: 1px solid var(--imp-border-color);
+  z-index: 10;
+}
+
+[data-theme='dark'] .share-tooltip {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+.share-icon-wrapper:hover .share-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(2px);
+}
+
+/* ===== Share Menu Overlay ===== */
+.share-menu-overlay {
+  position: fixed; /* Before: Absolute */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1060;
+  /* z-index: 1050;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit; */
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.share-menu-container {
+  background: var(--card-bg);
+  width: 90%;
+  max-width: 360px;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  color: var(--text-color);
+  border: 1px solid var(--imp-border-color);
+}
+
+[data-theme='dark'] .share-menu-container {
+  background: #1b1b22; /* AGAR TIDAK TRANSPARAN */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.share-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.share-menu-header h5 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.15rem;
+}
+
+.share-menu-close {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  padding: 0;
+}
+
+.share-menu-close:hover {
+  opacity: 1;
+}
+
+.share-menu-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.share-option {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.share-option:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .share-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.share-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.share-icon.facebook {
+  background: #1877F2;
+}
+
+.share-icon.whatsapp {
+  background: #25D366;
+}
+
+.share-icon.twitter {
+  background: #000;
+}
+
+[data-theme='dark'] .share-icon.twitter {
+  background: #fff;
+  color: #000;
+}
+
+.share-option span {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.share-menu-link-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.share-link-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  font-weight: 500;
+}
+
+.share-link-box {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  padding: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .share-link-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.share-link-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  padding: 6px 10px;
+  outline: none;
+  text-overflow: ellipsis;
+}
+
+.share-copy-btn {
+  background: var(--imp-text-color);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.share-copy-btn:hover {
+  background: var(--imp-text-color-hover);
+}

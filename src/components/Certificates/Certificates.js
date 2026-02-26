@@ -6,6 +6,8 @@ import { Document, Page, pdfjs } from "react-pdf";
 import { useTheme } from "../../context/ThemeContext";
 import { translations } from "../../translations/translations";
 import { certificateItems } from "./data";
+import { FiShare2, FiCopy } from "react-icons/fi";
+import { FaFacebook, FaWhatsapp, FaTwitter } from "react-icons/fa";
 import "./Certificates.css";
 
 import SkeletonElement, { SkeletonCertificate } from "../Skeleton";
@@ -28,11 +30,69 @@ function Certificates() {
       expiryDate: language === 'id' ? 'Tanggal kedaluwarsa' : 'Expiration date',
       description: language === 'id' ? 'Deskripsi' : 'Description',
       viewCredential: language === 'id' ? 'Lihat Kredensial' : 'View Credential',
+    },
+    share: {
+      title: language === 'id' ? 'Bagikan' : 'Share',
+      linkText: language === 'id' ? 'Klik untuk menyalin link' : 'Click to copy link',
+      copied: language === 'id' ? 'Tersalin!' : 'Copied!',
+      copyBtn: language === 'id' ? 'Salin' : 'Copy'
     }
   };
 
   const [selected, setSelected] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [copied, setCopied] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+
+  // Mengecek URL parameter saat load awal untuk membuka sertifikat
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const certId = params.get("id");
+    if (certId) {
+      const foundCert = certificateItems.find(c => c.id === certId);
+      if (foundCert) {
+        setSelected(foundCert);
+      }
+    }
+  }, []);
+
+  const handleShareClick = () => {
+    setShowShareMenu(true);
+  };
+
+  const getShareUrl = () => {
+    if (!selected) return window.location.href;
+    const url = new URL(window.location.href);
+    url.searchParams.set("id", selected.id);
+    return url.toString();
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(getShareUrl());
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const shareToPlatform = (platform) => {
+    const url = encodeURIComponent(getShareUrl());
+    const text = encodeURIComponent(`Lihat sertifikat saya: ${selected?.title}`);
+
+    let shareUrl = '';
+    switch (platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        break;
+      case 'whatsapp':
+        shareUrl = `https://api.whatsapp.com/send?text=${text}%20${url}`;
+        break;
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+        break;
+      default:
+        return;
+    }
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  };
 
   // [NEW] untuk Multi-page PDF
   const [numPages, setNumPages] = useState(null);
@@ -94,13 +154,11 @@ function Certificates() {
 
   // Open lightbox for image-type certificates
   const openImageLightbox = useCallback((cert) => {
-    // For image type, open in a simple lightbox
     setLightboxOpen(true);
     setLightboxPage(1);
     document.body.style.overflow = 'hidden';
   }, []);
 
-  // Keyboard support for lightbox
   useEffect(() => {
     if (!lightboxOpen) return;
     const handleKey = (e) => {
@@ -190,17 +248,67 @@ function Certificates() {
       {/* MODAL SECTION */}
       <Modal
         show={!!selected}
-        // onHide={() => setSelected(null)}
-        onHide={() => { setSelected(null); setPageNumber(1); }}
-        // size="xl"
+        onHide={() => { setSelected(null); setPageNumber(1); setShowShareMenu(false); }}
         size="lg"
         centered
         contentClassName="certificate-modal"
       >
         <Modal.Header closeButton>
-          <Modal.Title>{selected?.title}</Modal.Title>
+          <Modal.Title className="w-100 d-flex align-items-center justify-content-between pe-3">
+            <span>{selected?.title}</span>
+            <div className="share-icon-wrapper">
+              <button
+                className="share-icon-btn"
+                onClick={handleShareClick}
+                aria-label={language === 'id' ? 'Bagikan Link' : 'Share Link'}
+              >
+                <FiShare2 />
+              </button>
+              <div className="share-tooltip">
+                {language === 'id' ? 'Bagikan Link' : 'Share Link'}
+              </div>
+            </div>
+          </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={{ position: 'relative' }}>
+
+          {/* Share Menu Overlay via Portal to cover full screen */}
+          {showShareMenu && ReactDOM.createPortal(
+            <div className="share-menu-overlay" onClick={() => setShowShareMenu(false)}>
+              <div className="share-menu-container" onClick={e => e.stopPropagation()}>
+                <div className="share-menu-header">
+                  <h5>{labels.share.title}</h5>
+                  <button className="share-menu-close" onClick={() => setShowShareMenu(false)}>✕</button>
+                </div>
+
+                <div className="share-menu-options">
+                  <div className="share-option" onClick={() => shareToPlatform('facebook')}>
+                    <div className="share-icon facebook"><FaFacebook /></div>
+                    <span>Facebook</span>
+                  </div>
+                  <div className="share-option" onClick={() => shareToPlatform('whatsapp')}>
+                    <div className="share-icon whatsapp"><FaWhatsapp /></div>
+                    <span>WhatsApp</span>
+                  </div>
+                  <div className="share-option" onClick={() => shareToPlatform('twitter')}>
+                    <div className="share-icon twitter"><FaTwitter /></div>
+                    <span>X</span>
+                  </div>
+                </div>
+
+                <div className="share-menu-link-section">
+                  <div className="share-link-label">{labels.share.linkText}</div>
+                  <div className="share-link-box">
+                    <input type="text" readOnly value={getShareUrl()} />
+                    <button className="share-copy-btn" onClick={copyToClipboard}>
+                      {copied ? labels.share.copied : labels.share.copyBtn}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>,
+            document.body
+          )}
           {selected?.type === "image" ? (
             <img src={selected.src} alt={selected.title} className="certificate-full" />
           ) : selected ? (
@@ -307,14 +415,21 @@ function Certificates() {
               </div>
 
 
-              {selected.credentialUrl && (
-                <div className="meta-actions">
+              <div className="meta-actions">
+                {selected.credentialUrl && (
                   <a href={selected.credentialUrl} target="_blank" rel="noreferrer" className="credential-btn">
                     {labels.meta.viewCredential}
                   </a>
-                  {/* <a href={selected.credentialUrl} target="_blank" rel="noreferrer" className="credential-btn">{labels.meta.viewCredential}</a> */}
-                </div>
-              )}
+                )}
+                <button
+                  onClick={handleShareClick}
+                  className="credential-btn d-inline-flex align-items-center"
+                  style={{ marginLeft: selected.credentialUrl ? '10px' : '0', gap: '6px' }}
+                >
+                  <FiShare2 />
+                  {language === 'id' ? 'Bagikan Link' : 'Share Link'}
+                </button>
+              </div>
             </div>
           )}
         </Modal.Body>
