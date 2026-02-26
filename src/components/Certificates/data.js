@@ -27,8 +27,24 @@ import GoogleFoundationsCybersecurityPdf from "../../Assets/Projects/Certificate
 import RevoUMarketingPdf from "../../Assets/Projects/Certificate-Digital-Marketing-RevoU.pdf";
 
 import DicodingDasarAIPdf from "../../Assets/Projects/Certificate-Dicoding-Dasar-AI.pdf";
+import DicodingPythonPdf from "../../Assets/Projects/Certificate-Dicoding-Python.pdf";
 
 export const certificateItems = [
+  {
+    id: "dicoding-python-dasar",
+    title: "Memulai Pemrograman dengan Python",
+    issuer: "Dicoding Indonesia & Google Developers",
+    type: "pdf",
+    src: DicodingPythonPdf,
+    credentialId: "2VX3014KJXYQ",
+    credentialUrl: "https://www.dicoding.com/certificates/2VX3014KJXYQ",
+    issueDate: "2026-02-26",
+    expiryDate: "2029-02-26",
+    description: {
+      en: "Completed an intensive 60-hour Python programming course endorsed by Google Developers. Mastered industry-standard core concepts including Control Flow, Arrays/Matrices, Object-Oriented Programming (OOP), Unit Testing, and PEP8 style guides.",
+      id: "Menyelesaikan kursus pemrograman Python intensif selama 60 jam yang didukung oleh Google Developers. Menguasai konsep inti berstandar industri termasuk Control Flow, Array/Matriks, Object-Oriented Programming (OOP), Unit Testing, dan panduan gaya penulisan PEP8."
+    }
+  },
   {
     id: "dicoding-dasar-ai",
     title: "Belajar Dasar AI (Introduction to AI)",
@@ -55,7 +71,7 @@ export const certificateItems = [
     issueDate: "2026-01-05",
     expiryDate: "2029-01-05", 
     description: {
-      // "Certified proficiency in Accurate Online accounting software. Includes comprehensive training (Sep-Dec 2025) covering financial reporting, ledger management, and taxation workflows.",
+
       en: "Certified proficiency in Accurate Online accounting software. Includes comprehensive training (Sep-Dec 2025) covering financial reporting, ledger management, and taxation workflows.",
       id: "Sertifikasi keahlian perangkat lunak akuntansi Accurate Online. Mencakup pelatihan komprehensif (Sep-Des 2025) yang meliputi pelaporan keuangan, manajemen buku besar, dan alur kerja perpajakan."
     }
@@ -142,9 +158,9 @@ export const certificateItems = [
   issuer: "Google",
   type: "pdf",
   src: GoogleDataFoundationsPdf,
-  credentialId: "7DYJW6C9RNE0", // [cite: 18]
+  credentialId: "7DYJW6C9RNE0",
   credentialUrl: "https://www.coursera.org/account/accomplishments/records/7DYJW6C9RNE0",
-  issueDate: "2026-01-26", // [cite: 3]
+  issueDate: "2026-01-26", 
   expiryDate: null,
   description: {
     en: "Mastered the basics of data analytics, including the role of data in decision-making, the data life cycle, and common tools like spreadsheets and SQL.",
@@ -207,7 +223,6 @@ export const certificateItems = [
     credentialUrl: null,
     issueDate: "2026-01-06",
     expiryDate: null,
-    // description: "Comprehensive preparation course for the Test of English as a Foreign Language (TOEFL), focusing on Listening, Structure, and Reading comprehension strategies.",
     description: {
       en: "Comprehensive preparation course for the Test of English as a Foreign Language (TOEFL), focusing on Listening, Structure, and Reading comprehension strategies.",
       id: "Kursus persiapan komprehensif untuk Test of English as a Foreign Language (TOEFL), berfokus pada strategi Listening, Structure, dan Reading comprehension."
@@ -224,7 +239,6 @@ export const certificateItems = [
     credentialUrl: null,
     issueDate: "2026-01-08",
     expiryDate: null,
-    // description: "Learned the fundamentals of User Experience (UX) Research, including qualitative/quantitative methods, user persona creation, and empathy mapping.",
     description: {
       en: "Learned the fundamentals of User Experience (UX) Research, including qualitative/quantitative methods, user persona creation, and empathy mapping.",
       id: "Mempelajari dasar-dasar Riset User Experience (UX), termasuk metode kualitatif/kuantitatif, pembuatan persona pengguna, dan pemetaan empati."
@@ -240,7 +254,7 @@ export const certificateItems = [
     credentialId: "MS-16/1/2026-8vofJnRj2c4nX2IFHaz3", 
     credentialUrl: "https://storage.googleapis.com/myskill-v2-certificates/topic-qtKMZ78xyd6TPzUQOESu/avuIgxkt08ccYAkPCHs5vUQx9nj1-8vofJnRj2c4nX2lFHaz3.pdf",
     issueDate: "2026-01-16",
-    expiryDate: null, // Sertifikat Udemy biasanya lifetime
+    expiryDate: null,
     // description: "Completed an intensive 16-hour specialization track consisting of 16 comprehensive courses. Mastered end-to-end Data Analysis competencies including SQL, Python, Data Visualization, and Business Intelligence implementations.",
     description: {
       en: "Completed an intensive 16-hour specialization track consisting of 16 comprehensive courses. Mastered end-to-end Data Analysis competencies including SQL, Python, Data Visualization, and Business Intelligence implementations.",
@@ -257,7 +271,6 @@ export const certificateItems = [
     credentialUrl: "https://ude.my/UC-53b91fc6-0ddc-4f11-8f9c-21187622374a",
     issueDate: "2026-01-16",
     expiryDate: null,
-    // description: "Completed a comprehensive 6.5-hour mastery course covering Zero-shot, Few-shot, Chain-of-Thought prompting, and GenAI tools like ChatGPT & Midjourney.",
     description: {
       en: "Completed a comprehensive 6.5-hour mastery course covering Zero-shot, Few-shot, Chain-of-Thought prompting, and GenAI tools like ChatGPT & Midjourney.",
       id: "Menyelesaikan kursus penguasaan komprehensif selama 6,5 jam yang mencakup prompting Zero-shot, Few-shot, Chain-of-Thought, dan alat GenAI seperti ChatGPT & Midjourney."
@@ -273,7 +286,6 @@ export const certificateItems = [
     credentialUrl: null,
     issueDate: "2022-06-16",
     expiryDate: null,
-    // description: "Completed the SAP University Partnership Program course 'SCM600'. Key Learnings: • Mastered the fundamental business processes in Sales Order Management within SAP ERP. • Hands-on experience with the Order-to-Cash process chain. • Understanding organizational structures in Sales and Distribution.",
     description: {
       en: "Completed the SAP University Partnership Program course 'SCM600'. Key Learnings: • Mastered the fundamental business processes in Sales Order Management within SAP ERP. • Hands-on experience with the Order-to-Cash process chain. • Understanding organizational structures in Sales and Distribution.",
       id: "Menyelesaikan kursus SAP University Partnership Program 'SCM600'. Pembelajaran Utama: • Menguasai proses bisnis fundamental dalam Manajemen Sales Order di SAP ERP. • Pengalaman langsung dengan rantai proses Order-to-Cash. • Memahami struktur organisasi dalam Penjualan dan Distribusi."
