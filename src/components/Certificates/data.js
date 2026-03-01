@@ -29,7 +29,24 @@ import RevoUMarketingPdf from "../../Assets/Projects/Certificate-Digital-Marketi
 import DicodingDasarAIPdf from "../../Assets/Projects/Certificate-Dicoding-Dasar-AI.pdf";
 import DicodingPythonPdf from "../../Assets/Projects/Certificate-Dicoding-Python.pdf";
 
+import DicodingFabricPdf from "../../Assets/Projects/Certificate-Dicoding-Microsoft-Fabric.pdf";
+
 export const certificateItems = [
+  {
+    id: "dicoding-microsoft-fabric",
+    title: "Penerapan Data Science dengan Microsoft Fabric",
+    issuer: "Dicoding Indonesia & Microsoft",
+    type: "pdf",
+    src: DicodingFabricPdf,
+    credentialId: "MRZMWD2DRPYQ",
+    credentialUrl: "https://www.dicoding.com/certificates/MRZMWD2DRPYQ",
+    issueDate: "2026-03-01",
+    expiryDate: "2029-03-01",
+    description: {
+      en: "Mastered end-to-end Data Science workflows using Microsoft Fabric. Acquired skills in data exploration, preprocessing with Data Wrangler, model training/tracking via MLflow, and deploying batch predictions to enhance organizational data value.",
+      id: "Menguasai alur kerja Data Science end-to-end menggunakan Microsoft Fabric. Memperoleh keterampilan dalam eksplorasi data, preprocessing dengan Data Wrangler, pelatihan/pelacakan model melalui MLflow, dan deployment prediksi batch untuk meningkatkan nilai data organisasi."
+    }
+  },
   {
     id: "dicoding-python-dasar",
     title: "Memulai Pemrograman dengan Python",
