@@ -31,7 +31,24 @@ import DicodingPythonPdf from "../../Assets/Projects/Certificate-Dicoding-Python
 
 import DicodingFabricPdf from "../../Assets/Projects/Certificate-Dicoding-Microsoft-Fabric.pdf";
 
+import WebDesignUwikaPdf from "../../Assets/Projects/Certificate-Web-Design-UWIKA.pdf";
+
 export const certificateItems = [
+  {
+    id: "web-design-uwika",
+    title: "Web Design (Grade: 90/A)",
+    issuer: "Universitas Widya Kartika",
+    type: "pdf",
+    src: WebDesignUwikaPdf,
+    credentialId: "22.311.2526.002",
+    credentialUrl: "", 
+    issueDate: "2026-02-24",
+    expiryDate: null,
+    description: {
+      en: "Successfully completed the Web Design academic course with an excellent grade of 90 (A). Strengthened fundamental knowledge in UI/UX principles, responsive layouts, and modern web development practices to create user-centric digital experiences.",
+      id: "Berhasil menyelesaikan mata kuliah Web Design dengan nilai memuaskan 90 (A). Memperkuat pengetahuan fundamental dalam prinsip UI/UX, tata letak responsif, dan praktik pengembangan web modern untuk menciptakan pengalaman digital yang berpusat pada pengguna."
+    }
+  },
   {
     id: "dicoding-microsoft-fabric",
     title: "Penerapan Data Science dengan Microsoft Fabric",
