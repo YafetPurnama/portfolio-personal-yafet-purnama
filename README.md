@@ -11,7 +11,7 @@ Portfolio pribadi yang dibuat dengan React untuk menampilkan profil, proyek, kea
 
 ### Demo
 
-- My personal portfolio: <a href="" target="https://portfolio-yafetpurnama.vercel.app/">Link</a>
+- My personal portfolio: <a href="Personal Portofolio Website" target="https://portfolio-yafetpurnama.vercel.app/">Link</a>
 
 ## Teknologi
 

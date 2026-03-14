@@ -33,7 +33,24 @@ import DicodingFabricPdf from "../../Assets/Projects/Certificate-Dicoding-Micros
 
 import WebDesignUwikaPdf from "../../Assets/Projects/Certificate-Web-Design-UWIKA.pdf";
 
+import DicodingMLPdf from "../../Assets/Projects/Certificate-Dicoding-Machine-Learning.pdf";
+
 export const certificateItems = [
+  {
+    id: "dicoding-machine-learning-pemula",
+    title: "Belajar Machine Learning untuk Pemula",
+    issuer: "Dicoding Indonesia & Google Developers",
+    type: "pdf",
+    src: DicodingMLPdf,
+    credentialId: "KEXLQ0M9WPG2",
+    credentialUrl: "https://www.dicoding.com/certificates/KEXLQ0M9WPG2",
+    issueDate: "2026-03-14",
+    expiryDate: "2029-03-14", // Berlaku 3 tahun
+    description: {
+      en: "Completed an intensive 90-hour Machine Learning course endorsed by Google Developers. Acquired hands-on experience in building Supervised and Unsupervised learning models on tabular data, covering Classification, Regression, Clustering, Feature Engineering, and Hyperparameter Tuning.",
+      id: "Menyelesaikan kursus Machine Learning intensif selama 90 jam yang didukung oleh Google Developers. Memperoleh pengalaman langsung dalam membangun model pembelajaran Supervised dan Unsupervised pada data tabular, mencakup Klasifikasi, Regresi, Clustering, Feature Engineering, dan Hyperparameter Tuning."
+    }
+  },
   {
     id: "web-design-uwika",
     title: "Web Design (Grade: 90/A)",
