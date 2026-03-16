@@ -35,7 +35,24 @@ import WebDesignUwikaPdf from "../../Assets/Projects/Certificate-Web-Design-UWIK
 
 import DicodingMLPdf from "../../Assets/Projects/Certificate-Dicoding-Machine-Learning.pdf";
 
+import EnglishBootcampPdf from "../../Assets/Projects/Certificate-English-Bootcamp-MySkill.pdf";
+
 export const certificateItems = [
+  {
+    id: "myskill-english-bootcamp",
+    title: "Intensive English & Test Preparation Bootcamp",
+    issuer: "MySkill",
+    type: "pdf",
+    src: EnglishBootcampPdf,
+    credentialId: "MS-15/3/2026-zLN6PgQwwqeZRgOJC0He",
+    credentialUrl: "https://storage.googleapis.com/myskill-v2-certificates/bootcamp-bqPX4zoidImuQ5z88F05/avuIgxkt08ccYAkPCHs5vUQx9nj1-zLN6PgQwwqeZRgOJC0He.pdf",
+    issueDate: "2026-03-15", // Sesuai tanggal sertifikat
+    expiryDate: null,
+    description: {
+      en: "Completed an intensive 7-week English bootcamp covering professional communication, academic reading, and structural writing. This significantly enhances my capability to consume global technical documentation and communicate effectively in international tech environments.",
+      id: "Menyelesaikan bootcamp bahasa Inggris intensif selama 7 minggu yang mencakup komunikasi profesional, membaca literatur akademik, dan penulisan terstruktur. Hal ini secara signifikan meningkatkan kemampuan saya dalam memahami dokumentasi teknis global dan berkomunikasi secara efektif di lingkungan teknologi internasional."
+    }
+  },
   {
     id: "dicoding-machine-learning-pemula",
     title: "Belajar Machine Learning untuk Pemula",
