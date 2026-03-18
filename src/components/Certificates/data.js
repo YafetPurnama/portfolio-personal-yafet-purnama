@@ -37,7 +37,24 @@ import DicodingMLPdf from "../../Assets/Projects/Certificate-Dicoding-Machine-Le
 
 import EnglishBootcampPdf from "../../Assets/Projects/Certificate-English-Bootcamp-MySkill.pdf";
 
+import DicodingGenAIAzurePdf from "../../Assets/Projects/Certificate-Dicoding-Gen-AI-Azure.pdf";
+
 export const certificateItems = [
+  {
+    id: "dicoding-gen-ai-azure",
+    title: "Membangun Aplikasi Gen AI dengan Microsoft Azure",
+    issuer: "Dicoding Indonesia & Microsoft",
+    type: "pdf",
+    src: DicodingGenAIAzurePdf,
+    credentialId: "N9ZON6W8RXG5",
+    credentialUrl: "https://www.dicoding.com/certificates/N9ZON6W8RXG5",
+    issueDate: "2026-03-18",
+    expiryDate: "2029-03-18",
+    description: {
+      en: "Completed a specialized course on building Generative AI applications using Microsoft Azure. Acquired highly demanded practical skills in deploying LLMs, developing Retrieval Augmented Generation (RAG) solutions, fine-tuning open-source models, and implementing Responsible AI practices using Azure AI Foundry.",
+      id: "Menyelesaikan kursus spesialisasi dalam membangun aplikasi Generative AI menggunakan Microsoft Azure. Memperoleh keterampilan praktis yang sangat dicari industri dalam men-deploy LLM, mengembangkan solusi Retrieval Augmented Generation (RAG), fine-tuning model open-source, dan menerapkan praktik Responsible AI menggunakan Azure AI Foundry."
+    }
+  },
   {
     id: "myskill-english-bootcamp",
     title: "Intensive English & Test Preparation Bootcamp",
