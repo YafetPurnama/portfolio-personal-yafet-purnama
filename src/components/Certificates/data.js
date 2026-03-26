@@ -41,7 +41,24 @@ import DicodingGenAIAzurePdf from "../../Assets/Projects/Certificate-Dicoding-Ge
 
 import DicodingDataProcessingPdf from "../../Assets/Projects/Certificate-Dicoding-Data-Processing.pdf";
 
+import IbmIntroAIPdf from "../../Assets/Projects/Certificate-IBM-Intro-AI.pdf";
+
 export const certificateItems = [
+  {
+    id: "ibm-intro-ai",
+    title: "Introduction to Artificial Intelligence",
+    issuer: "IBM SkillsBuild",
+    type: "pdf",
+    src: IbmIntroAIPdf,
+    credentialId: "ALM-COURSE_4058918",
+    credentialUrl: "https://skills.yourlearning.ibm.com/certificate/share/0e8eba4aa7ewogICJvYmplY3RUeXBlIiA6ICJBQ1RJVklUWSIsCiAgIm9iamVjdElkIiA6ICJBTE0tQ09VUlNFXzQwNTg5MTgiLAogICJsZWFybmVyQ05VTSIgOiAiNzQwODgxM1JFRyIKfQf108bfb0cd-10",
+    issueDate: "2026-03-26",
+    expiryDate: null,
+    description: {
+      en: "Completed foundational AI training authorized by IBM. Gained a solid understanding of Artificial Intelligence core concepts, its real-world enterprise applications, and the ethical considerations driving modern AI development.",
+      id: "Menyelesaikan pelatihan dasar AI yang diotorisasi oleh IBM. Memperoleh pemahaman kuat tentang konsep inti Kecerdasan Buatan, penerapannya di dunia nyata pada level enterprise, serta pertimbangan etis yang mendorong pengembangan AI modern."
+    }
+  },
   {
     id: "dicoding-fundamental-pemrosesan-data",
     title: "Belajar Fundamental Pemrosesan Data",
