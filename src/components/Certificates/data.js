@@ -39,7 +39,24 @@ import EnglishBootcampPdf from "../../Assets/Projects/Certificate-English-Bootca
 
 import DicodingGenAIAzurePdf from "../../Assets/Projects/Certificate-Dicoding-Gen-AI-Azure.pdf";
 
+import DicodingDataProcessingPdf from "../../Assets/Projects/Certificate-Dicoding-Data-Processing.pdf";
+
 export const certificateItems = [
+  {
+    id: "dicoding-fundamental-pemrosesan-data",
+    title: "Belajar Fundamental Pemrosesan Data",
+    issuer: "Dicoding Indonesia & Google Developers",
+    type: "pdf",
+    src: DicodingDataProcessingPdf,
+    credentialId: "JLX1VW53NZ72",
+    credentialUrl: "https://www.dicoding.com/certificates/JLX1VW53NZ72",
+    issueDate: "2026-03-26",
+    expiryDate: "2029-03-26", // Berlaku 3 tahun
+    description: {
+      en: "Completed an intensive 70-hour course on fundamental data processing endorsed by Google Developers. Mastered Data Engineering practices including building ETL (Extract, Transform, Load) pipelines, software engineering with Python, managing data repositories, and automating data workflows.",
+      id: "Menyelesaikan kursus intensif 70 jam tentang fundamental pemrosesan data yang didukung oleh Google Developers. Menguasai praktik Data Engineering termasuk membangun pipeline ETL (Extract, Transform, Load), rekayasa perangkat lunak dengan Python, mengelola repositori data, dan automasi alur kerja data."
+    }
+  },
   {
     id: "dicoding-gen-ai-azure",
     title: "Membangun Aplikasi Gen AI dengan Microsoft Azure",
