@@ -9,6 +9,7 @@ import { certificateItems } from "./data";
 import { FiShare2, FiCopy } from "react-icons/fi";
 import { FaFacebook, FaWhatsapp, FaTwitter } from "react-icons/fa";
 import "./Certificates.css";
+import { Helmet } from "react-helmet-async";
 
 import SkeletonElement, { SkeletonCertificate } from "../Skeleton";
 
@@ -184,6 +185,11 @@ function Certificates() {
 
   return (
     <Container fluid className="certificate-section">
+      <Helmet>
+        <title>Sertifikat Yafet Purnama - IBM, Google, Coursera | Portfolio</title>
+        <meta name="description" content="Sertifikat dan penghargaan Yafet Purnama — termasuk sertifikat dari IBM SkillsBuild, Google, Coursera, dan lembaga pendidikan lainnya. Bukti kompetensi di bidang software development." />
+        <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/certificates" />
+      </Helmet>
       <Particle />
       <Container>
         <h1 className="certificate-heading">{labels.title}</h1>

@@ -94,6 +94,9 @@ export const translations = {
     project_peer_assessment_title: 'Program Peer Assessment',
     project_peer_assessment_desc: 'A web application for peer assessment in educational settings, built with React 19, TypeScript, and Tailwind CSS.',
 
+    project_hris_slip_gaji_title: 'HRIS Employee Payslip',
+    project_hris_slip_gaji_desc: 'A web-based HRIS application for managing employee payslips, featuring payroll system, employee management, and salary slip generation. Built with Laravel and modern web technologies.',
+
     // Contact
     say_hello: 'Say Hello',
     contact_description: "Fill out the form below to get in touch with me. I'm always excited to hear about new opportunities and I'll do my best to respond to your inquiry within 24 hours.",
@@ -135,6 +138,16 @@ export const translations = {
     },
 
     view_cv_prompt: 'Click below to see the detail CV',
+
+    // WhatsApp CTA
+    wa_cta_title: 'Interested in working together?',
+    wa_cta_subtitle: 'Feel free to reach out to me directly via WhatsApp!',
+    wa_cta_button: 'Contact Me',
+    wa_cta_message: 'Hi Yafet! I saw your portfolio and I\'m interested in discussing a project with you.',
+
+    // Home WhatsApp CTA
+    home_wa_cta_text: 'Interested in discussing a project? Chat me directly!',
+    home_wa_cta_button: 'Chat via WhatsApp',
 
   },
 
@@ -233,6 +246,9 @@ export const translations = {
     project_peer_assessment_title: 'Sistem Penilaian Sejawat',
     project_peer_assessment_desc: 'Sebuah aplikasi web untuk penilaian sejawat (peer assessment) dalam lingkungan pendidikan, memungkinkan mahasiswa atau siswa untuk saling memberikan evaluasi. Dibangun dengan React 19, TypeScript, dan Tailwind CSS.',
 
+    project_hris_slip_gaji_title: 'HRIS Slip Gaji Karyawan',
+    project_hris_slip_gaji_desc: 'Aplikasi HRIS berbasis web untuk mengelola slip gaji karyawan, dilengkapi dengan sistem penggajian, manajemen karyawan, dan pembuatan slip gaji. Dibangun menggunakan Laravel dan teknologi web modern.',
+
     // Contact
     say_hello: 'Katakan Halo',
     contact_description: 'Isi formulir di bawah untuk menghubungi saya. Saya selalu bersemangat mendengar peluang baru dan akan berusaha merespons pertanyaan Anda dalam 24 jam.',
@@ -274,5 +290,16 @@ export const translations = {
     },
 
     view_cv_prompt: 'Klik di bawah ini untuk melihat CV selengkapnya',
+
+    // WhatsApp CTA
+    wa_cta_title: 'Tertarik untuk bekerja sama?',
+    wa_cta_subtitle: 'Jangan ragu untuk menghubungi saya langsung via WhatsApp!',
+    wa_cta_button: 'Hubungi Saya',
+    wa_cta_message: 'Halo Yafet! Saya melihat portfolio Anda dan tertarik untuk mendiskusikan sebuah proyek.',
+
+    // Home WhatsApp CTA
+    home_wa_cta_text: 'Tertarik mendiskusikan proyek? Hubungi saya langsung!',
+    home_wa_cta_button: 'Chat via WhatsApp',
+
   }
 }; 

@@ -8,6 +8,7 @@ import Toolstack from "./Toolstack";
 import { useTheme } from "../../context/ThemeContext";
 import { translations } from "../../translations/translations";
 import { SkeletonElement, SkeletonText, SkeletonButton } from "../Skeleton";
+import { Helmet } from "react-helmet-async";
 
 import portfolioPdf from "../../Assets/Portfolio-Yafet-Purnama.pdf";
 import { AiOutlineDownload, AiOutlineEye } from "react-icons/ai";
@@ -76,6 +77,11 @@ function About() {
   
   return (
     <Container fluid className="about-section">
+      <Helmet>
+        <title>Tentang Yafet Purnama - Software Developer Surabaya | Skills & Experience</title>
+        <meta name="description" content="Tentang Yafet Purnama — Mahasiswa Informatika & Software Developer dari Surabaya. Keahlian di Laravel, React.js, Next.js, PHP, JavaScript, C#, Go. Lihat skillset dan tools yang digunakan." />
+        <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/about" />
+      </Helmet>
       <Particle />
       <Container>
         <Row style={{ justifyContent: "center", padding: "10px" }} className="align-items-center">

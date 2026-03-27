@@ -12,6 +12,7 @@ import ReactDOM from "react-dom";
 import { FiShare2 } from "react-icons/fi";
 import { FaFacebook, FaWhatsapp, FaTwitter } from "react-icons/fa";
 import "../Certificates/Certificates.css";
+import { Helmet } from "react-helmet-async";
 
 // Configure PDF.js worker - diperlukan untuk memuat PDF
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -76,6 +77,11 @@ function ResumeNew() {
   return (
     <div>
       <Container fluid className="resume-section">
+        <Helmet>
+          <title>Resume & CV Yafet Purnama - Software Developer Surabaya</title>
+          <meta name="description" content="Resume dan Curriculum Vitae Yafet Purnama — Software Developer & Full-Stack Web Developer dari Surabaya. Download CV untuk informasi lengkap pengalaman kerja dan pendidikan." />
+          <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/resume" />
+        </Helmet>
         <Particle />
         <Row style={{ justifyContent: "center", position: "relative" }}>
           {/* <Button

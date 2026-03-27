@@ -7,6 +7,7 @@ import {
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import { BsWhatsapp } from "react-icons/bs";
 import { useTheme } from "../../context/ThemeContext";
 import { translations } from "../../translations/translations";
 import { SkeletonElement, SkeletonText, SkeletonButton } from "../Skeleton";
@@ -220,6 +221,25 @@ function Home2() {
                 </a>
               </li>
             </ul>
+
+            {/* WhatsApp CTA - different design from project page */}
+            <div className="home-wa-cta">
+              <div className="home-wa-cta-divider">
+                <span>{language === 'id' ? 'atau' : 'or'}</span>
+              </div>
+              <p className="home-wa-cta-text">
+                {currentTranslations.home_wa_cta_text}
+              </p>
+              <a
+                className="home-wa-cta-btn"
+                href={`https://wa.me/6282124952938?text=${encodeURIComponent(currentTranslations.wa_cta_message)}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsWhatsapp className="home-wa-cta-btn-icon" />
+                <span>{currentTranslations.home_wa_cta_button}</span>
+              </a>
+            </div>
           </Col>
         </Row>
       </Container>

@@ -999,6 +999,99 @@ button:focus {
 }
 
 /* --------- */
+/* Home WhatsApp CTA */
+/* --------- */
+.home-wa-cta {
+  margin-top: 28px;
+  text-align: center;
+}
+
+.home-wa-cta-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto 16px auto;
+  max-width: 280px;
+}
+
+.home-wa-cta-divider::before,
+.home-wa-cta-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+}
+
+[data-theme='light'] .home-wa-cta-divider::before,
+[data-theme='light'] .home-wa-cta-divider::after {
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
+}
+
+.home-wa-cta-divider span {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  text-transform: lowercase;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.home-wa-cta-text {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  color: var(--text-color);
+  margin-bottom: 14px;
+}
+
+.home-wa-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  background: #25D366;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-wa-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.home-wa-cta-btn:hover::before {
+  left: 100%;
+}
+
+.home-wa-cta-btn:hover {
+  background: #1ebe5c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  color: #fff !important;
+}
+
+.home-wa-cta-btn-icon {
+  font-size: 1.2rem;
+  animation: waIconBounce 2s ease-in-out infinite;
+}
+
+@keyframes waIconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* --------- */
 /* Footer */
 /* --------- */
 .footer {
@@ -1193,6 +1286,153 @@ button:focus {
 /* Explicitly keep gradient on dark theme */
 [data-theme='dark'] .project-section {
   background: var(--background-gradient) !important;
+}
+
+/* --------- */
+/* WhatsApp CTA Banner */
+/* --------- */
+.wa-cta-banner {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.wa-cta-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 30px;
+  border-radius: 16px;
+  background: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.wa-cta-content:hover {
+  border-color: rgba(37, 211, 102, 0.5);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.15);
+  transform: translateY(-2px);
+}
+
+.wa-cta-icon {
+  font-size: 2.2rem;
+  color: #25D366;
+  flex-shrink: 0;
+  animation: waPulse 2s ease-in-out infinite;
+}
+
+@keyframes waPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.wa-cta-text {
+  flex: 1;
+}
+
+.wa-cta-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 4px 0;
+}
+
+.wa-cta-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.75;
+  margin: 0;
+}
+
+.wa-cta-button {
+  background: #25D366 !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  padding: 10px 24px !important;
+  border-radius: 12px !important;
+  white-space: nowrap;
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3) !important;
+  text-decoration: none !important;
+}
+
+.wa-cta-button:hover {
+  background: #1ebe5c !important;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4) !important;
+}
+
+/* Light theme */
+[data-theme='light'] .wa-cta-content {
+  background: rgba(37, 211, 102, 0.06);
+  border-color: rgba(37, 211, 102, 0.2);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .wa-cta-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 14px;
+  }
+
+  .wa-cta-icon {
+    font-size: 2rem;
+  }
+
+  .wa-cta-button {
+    width: 100%;
+    justify-content: center !important;
+  }
+}
+
+/* Project Card Image Wrapper */
+.project-card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Project Share Button - top right corner of image */
+.project-share-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: all 0.25s ease;
+  opacity: 0;
+}
+
+.project-card-view:hover .project-share-btn {
+  opacity: 1;
+}
+
+.project-share-btn:hover {
+  background: var(--imp-text-color);
+  color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 2px 10px rgba(220, 38, 38, 0.4);
 }
 
 .blog-card {

@@ -7,6 +7,7 @@ import Type from "./Type";
 import { useTheme } from "../../context/ThemeContext";
 import { translations } from "../../translations/translations";
 import { SkeletonElement, SkeletonText, SkeletonButton } from "../Skeleton";
+import { Helmet } from "react-helmet-async";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -24,6 +25,11 @@ function Home() {
 
   return (
     <section>
+      <Helmet>
+        <title>Yafet Purnama - Software Developer | Full-Stack Web & Mobile Portfolio</title>
+        <meta name="description" content="Yafet Purnama — Software Developer & Full-Stack Web Developer dari Surabaya, Indonesia. Berpengalaman di Laravel, React.js, Next.js, PHP, JavaScript, dan C#. Lihat proyek, sertifikat, dan pengalaman saya." />
+        <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/" />
+      </Helmet>
       <Container fluid className="home-section" id="home">
         <Particle />
         <Container className="home-content">

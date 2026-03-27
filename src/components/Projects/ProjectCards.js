@@ -1,21 +1,30 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub, BsEye, BsFileEarmarkPdf, BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import { IoNewspaperOutline } from "react-icons/io5";
+import { FiShare2 } from "react-icons/fi";
+import { FaFacebook, FaWhatsapp, FaTwitter } from "react-icons/fa";
+import { useTheme } from "../../context/ThemeContext";
+import { translations } from "../../translations/translations";
 import { SkeletonElement, SkeletonText } from "../Skeleton";
 
 
 function ProjectCards(props) {
-  const { previewImages = [], loading = false } = props;
+  const { previewImages = [], loading = false, projectId } = props;
+  const { language } = useTheme();
+  const t = translations[language];
   const [showPreview, setShowPreview] = useState(false);
   const [previewIndex, setPreviewIndex] = useState(0);
   const [animateKey, setAnimateKey] = useState(0);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [showPdfModal, setShowPdfModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -49,6 +58,49 @@ function ProjectCards(props) {
       img.onload = () => setIsImageLoaded(true);
     }
   }, [props.imgPath]);
+
+  // Share functionality
+  const shareLabels = {
+    title: language === 'id' ? 'Bagikan' : 'Share',
+    linkText: language === 'id' ? 'Klik untuk menyalin link' : 'Click to copy link',
+    copied: language === 'id' ? 'Tersalin!' : 'Copied!',
+    copyBtn: language === 'id' ? 'Salin' : 'Copy',
+    shareLink: language === 'id' ? 'Bagikan' : 'Share',
+  };
+
+  const getShareUrl = () => {
+    const url = new URL(window.location.href);
+    if (projectId) {
+      url.searchParams.set('project', projectId);
+    }
+    return url.toString();
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(getShareUrl());
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const shareToPlatform = (platform) => {
+    const url = encodeURIComponent(getShareUrl());
+    const text = encodeURIComponent(`${language === 'id' ? 'Lihat proyek saya' : 'Check out my project'}: ${props.title}`);
+    let shareUrl = '';
+    switch (platform) {
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+        break;
+      case 'whatsapp':
+        shareUrl = `https://api.whatsapp.com/send?text=${text}%20${url}`;
+        break;
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+        break;
+      default:
+        return;
+    }
+    window.open(shareUrl, '_blank', 'width=600,height=400');
+  };
 
   if (loading) {
     return (
@@ -100,25 +152,34 @@ function ProjectCards(props) {
   return (
     <>
       <Card className="project-card-view">
-        {!isImageLoaded && (
-          <SkeletonElement
-            type="thumbnail"
-            style={{
-              width: '100%',
-              height: '200px',
-              borderRadius: '8px 8px 0 0',
-              position: 'absolute',
-              zIndex: 1
-            }}
+        <div className="project-card-img-wrapper">
+          {!isImageLoaded && (
+            <SkeletonElement
+              type="thumbnail"
+              style={{
+                width: '100%',
+                height: '200px',
+                borderRadius: '8px 8px 0 0',
+                position: 'absolute',
+                zIndex: 1
+              }}
+            />
+          )}
+          <Card.Img
+            variant="top"
+            src={props.imgPath}
+            alt="card-img"
+            onLoad={() => setIsImageLoaded(true)}
+            style={{ opacity: isImageLoaded ? 1 : 0 }}
           />
-        )}
-        <Card.Img
-          variant="top"
-          src={props.imgPath}
-          alt="card-img"
-          onLoad={() => setIsImageLoaded(true)}
-          style={{ opacity: isImageLoaded ? 1 : 0 }}
-        />
+          <button
+            className="project-share-btn"
+            onClick={() => setShowShareMenu(true)}
+            title={shareLabels.shareLink}
+          >
+            <FiShare2 />
+          </button>
+        </div>
         <Card.Body>
           <Card.Title>{props.title}</Card.Title>
           <Card.Text style={{ textAlign: "justify" }}>
@@ -291,6 +352,44 @@ function ProjectCards(props) {
             </Button>
           </Modal.Footer>
         </Modal>
+      )}
+
+      {/* Share Menu Overlay via Portal */}
+      {showShareMenu && ReactDOM.createPortal(
+        <div className="share-menu-overlay" onClick={() => setShowShareMenu(false)}>
+          <div className="share-menu-container" onClick={e => e.stopPropagation()}>
+            <div className="share-menu-header">
+              <h5>{shareLabels.title}</h5>
+              <button className="share-menu-close" onClick={() => setShowShareMenu(false)}>✕</button>
+            </div>
+
+            <div className="share-menu-options">
+              <div className="share-option" onClick={() => shareToPlatform('facebook')}>
+                <div className="share-icon facebook"><FaFacebook /></div>
+                <span>Facebook</span>
+              </div>
+              <div className="share-option" onClick={() => shareToPlatform('whatsapp')}>
+                <div className="share-icon whatsapp"><FaWhatsapp /></div>
+                <span>WhatsApp</span>
+              </div>
+              <div className="share-option" onClick={() => shareToPlatform('twitter')}>
+                <div className="share-icon twitter"><FaTwitter /></div>
+                <span>X</span>
+              </div>
+            </div>
+
+            <div className="share-menu-link-section">
+              <div className="share-link-label">{shareLabels.linkText}</div>
+              <div className="share-link-box">
+                <input type="text" readOnly value={getShareUrl()} />
+                <button className="share-copy-btn" onClick={copyToClipboard}>
+                  {copied ? shareLabels.copied : shareLabels.copyBtn}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>,
+        document.body
       )}
     </>
   );
