@@ -100,7 +100,8 @@ function Projects() {
                   isBlog={false}
                   title={t.project_locker_penyimpanan_title}
                   description={t.project_locker_penyimpanan_desc}
-                  pubLink="https://com.ojs.co.id/index.php/jkm/article/view/367"
+                    // pubLink="https://com.ojs.co.id/index.php/jkm/article/view/367"
+                    publink="https://oaj.jurnalhst.com/index.php/jkm/article/view/13232"
                   pubButtonText={t.button_publication}
                 />
               </Col>
