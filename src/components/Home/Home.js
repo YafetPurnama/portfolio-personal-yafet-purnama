@@ -28,7 +28,7 @@ function Home() {
       <Helmet>
         <title>Yafet Purnama - Software Developer | Full-Stack Web & Mobile Portfolio</title>
         <meta name="description" content="Yafet Purnama — Software Developer & Full-Stack Web Developer dari Surabaya, Indonesia. Berpengalaman di Laravel, React.js, Next.js, PHP, JavaScript, dan C#. Lihat proyek, sertifikat, dan pengalaman saya." />
-        <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/" />
+        <link rel="canonical" href="https://yafet-purnama-portofolio.web.id/" />
       </Helmet>
       <Container fluid className="home-section" id="home">
         <Particle />
@@ -95,7 +95,7 @@ function Home() {
                   <div className="profile-picture-border">
                     <img
                       src={ProfilePicture}
-                      alt="Profile Picture"
+                      alt="Yafet Purnama - Software Developer & Full-Stack Web Developer dari Surabaya"
                       className="profile-picture-img"
                     />
                   </div>

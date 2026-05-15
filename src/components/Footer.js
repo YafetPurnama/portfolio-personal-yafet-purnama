@@ -30,9 +30,9 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://github.com/YafetPurnama/"
-                // style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="GitHub Yafet Purnama"
               >
                 <AiFillGithub />
               </a>
@@ -40,9 +40,9 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://www.linkedin.com/in/yafet-purnama/"
-                // style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="LinkedIn Yafet Purnama"
               >
                 <FaLinkedinIn />
               </a>
@@ -50,9 +50,9 @@ function Footer() {
             <li className="social-icons">
               <a
                 href="https://www.instagram.com/yafetpurnama/"
-                // style={{ color: "white" }}
                 target="_blank" 
                 rel="noopener noreferrer"
+                aria-label="Instagram Yafet Purnama"
               >
                 <AiFillInstagram />
               </a>

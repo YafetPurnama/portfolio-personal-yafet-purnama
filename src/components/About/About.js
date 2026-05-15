@@ -80,7 +80,7 @@ function About() {
       <Helmet>
         <title>Tentang Yafet Purnama - Software Developer Surabaya | Skills & Experience</title>
         <meta name="description" content="Tentang Yafet Purnama — Mahasiswa Informatika & Software Developer dari Surabaya. Keahlian di Laravel, React.js, Next.js, PHP, JavaScript, C#, Go. Lihat skillset dan tools yang digunakan." />
-        <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/about" />
+        <link rel="canonical" href="https://yafet-purnama-portofolio.web.id/about" />
       </Helmet>
       <Particle />
       <Container>

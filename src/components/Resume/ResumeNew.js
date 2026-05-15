@@ -80,7 +80,7 @@ function ResumeNew() {
         <Helmet>
           <title>Resume & CV Yafet Purnama - Software Developer Surabaya</title>
           <meta name="description" content="Resume dan Curriculum Vitae Yafet Purnama — Software Developer & Full-Stack Web Developer dari Surabaya. Download CV untuk informasi lengkap pengalaman kerja dan pendidikan." />
-          <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/resume" />
+          <link rel="canonical" href="https://yafet-purnama-portofolio.web.id/resume" />
         </Helmet>
         <Particle />
         <Row style={{ justifyContent: "center", position: "relative" }}>

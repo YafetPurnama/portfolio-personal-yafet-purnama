@@ -188,7 +188,7 @@ function Certificates() {
       <Helmet>
         <title>Sertifikat Yafet Purnama - IBM, Google, Coursera | Portfolio</title>
         <meta name="description" content="Sertifikat dan penghargaan Yafet Purnama — termasuk sertifikat dari IBM SkillsBuild, Google, Coursera, dan lembaga pendidikan lainnya. Bukti kompetensi di bidang software development." />
-        <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/certificates" />
+        <link rel="canonical" href="https://yafet-purnama-portofolio.web.id/certificates" />
       </Helmet>
       <Particle />
       <Container>

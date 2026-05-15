@@ -20,6 +20,7 @@ import imgAnugerah from "../../Assets/Projects/banner-web-anugerah.png";
 import peerAssement from "../../Assets/Projects/banner-peer-assesment.png";
 import lockerPenyimpanan from "../../Assets/Projects/banner-loker-penyimpanan.png";
 import bannerHrisSlipGaji from "../../Assets/Projects/banner-hris-slipgaji.png";
+import bannerCindyStringTape from "../../Assets/Projects/banner-cindy-string-tape.png";
 import reportRPL from "../../Assets/Projects/Report-RPL.pdf";
 
 function Projects() {
@@ -40,7 +41,7 @@ function Projects() {
       <Helmet>
         <title>Proyek Yafet Purnama - HRIS, Web Development, Game | Portfolio</title>
         <meta name="description" content="Kumpulan proyek Yafet Purnama — HRIS Slip Gaji, Peer Assessment, Anugerah Jaya Abadi Website, TukuTuku Market, Rental Mobil, Game RPG, dan Locker Storage. Dibangun dengan Laravel, React.js, Next.js." />
-        <link rel="canonical" href="https://portfolio-yafetpurnama.vercel.app/project" />
+        <link rel="canonical" href="https://yafet-purnama-portofolio.web.id/project" />
       </Helmet>
       <Particle />
       <Container>
@@ -80,7 +81,7 @@ function Projects() {
             ))
           ) : (
             // Actual project cards
-              <>
+            <>
               <Col md={4} className="project-card">
                 <ProjectCard
                   projectId="hris-slip-gaji"
@@ -95,12 +96,24 @@ function Projects() {
 
               <Col md={4} className="project-card">
                 <ProjectCard
+                  projectId="cindy-string-tape"
+                  imgPath={bannerCindyStringTape}
+                  isBlog={false}
+                  title={t.project_cindy_string_tape_title}
+                  description={t.project_cindy_string_tape_desc}
+                  demoLink="https://stringtapesurabaya.com/"
+                />
+              </Col>
+
+
+              <Col md={4} className="project-card">
+                <ProjectCard
                   projectId="locker-penyimpanan"
                   imgPath={lockerPenyimpanan}
                   isBlog={false}
                   title={t.project_locker_penyimpanan_title}
                   description={t.project_locker_penyimpanan_desc}
-                    // pubLink="https://com.ojs.co.id/index.php/jkm/article/view/367"
+                  // pubLink="https://com.ojs.co.id/index.php/jkm/article/view/367"
                   pubLink="https://oaj.jurnalhst.com/index.php/jkm/article/view/13232"
                   pubButtonText={t.button_publication}
                 />
@@ -168,7 +181,7 @@ function Projects() {
                 />
               </Col>
 
-                
+
             </>
           )}
         </Row>

@@ -166,7 +166,7 @@ function Home2() {
             >
               <Tilt glareEnable={true} glareColor="rgba(220,38,38,0.25)" glareMaxOpacity={0.3} tiltMaxAngleX={10} tiltMaxAngleY={10}>
                 <div className="profile-picture-border profile-picture-border--plain avatar-float">
-                  <img src={myImg} className="profile-picture-img" alt="avatar" />
+                  <img src={myImg} className="profile-picture-img" alt="Foto Yafet Purnama - Software Developer Surabaya" />
                 </div>
               </Tilt>
 
@@ -196,6 +196,7 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  aria-label="GitHub Yafet Purnama"
                 >
                   <AiFillGithub />
                 </a>
@@ -206,6 +207,7 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
+                  aria-label="LinkedIn Yafet Purnama"
                 >
                   <FaLinkedinIn />
                 </a>
@@ -216,6 +218,7 @@ function Home2() {
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
+                  aria-label="Instagram Yafet Purnama"
                 >
                   <AiFillInstagram />
                 </a>

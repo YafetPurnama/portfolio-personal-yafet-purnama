@@ -2,4 +2,8 @@
 User-agent: *
 Allow: /
 
+# Primary domain
+Sitemap: https://yafet-purnama-portofolio.web.id/sitemap.xml
+
+# Secondary domain (Vercel)
 Sitemap: https://portfolio-yafetpurnama.vercel.app/sitemap.xml

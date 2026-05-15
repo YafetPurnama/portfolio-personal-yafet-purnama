@@ -1,5 +1,8 @@
 {
     "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+        { "source": "/google8f0e043bb5b2fe70.html", "destination": "/google8f0e043bb5b2fe70.html" },
+        { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+        { "source": "/robots.txt", "destination": "/robots.txt" },
+        { "source": "/(.*)", "destination": "/index.html" }
     ]
 }

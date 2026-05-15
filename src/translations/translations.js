@@ -97,6 +97,10 @@ export const translations = {
     project_hris_slip_gaji_title: 'HRIS Employee Payslip',
     project_hris_slip_gaji_desc: 'A web-based HRIS application for managing employee payslips, featuring payroll system, employee management, and salary slip generation. Built with Laravel and modern web technologies.',
 
+    project_cindy_string_tape_title: 'Cindy String Tape Surabaya',
+    project_cindy_string_tape_desc: 'A professional company profile platform for Cindy String Tape, a trusted supplier of packaging tapes in Surabaya. Built with Laravel to showcase products and facilitate customer inquiries.',
+
+
     // Contact
     say_hello: 'Say Hello',
     contact_description: "Fill out the form below to get in touch with me. I'm always excited to hear about new opportunities and I'll do my best to respond to your inquiry within 24 hours.",
@@ -248,6 +252,10 @@ export const translations = {
 
     project_hris_slip_gaji_title: 'HRIS Slip Gaji Karyawan',
     project_hris_slip_gaji_desc: 'Aplikasi HRIS berbasis web untuk mengelola slip gaji karyawan, dilengkapi dengan sistem penggajian, manajemen karyawan, dan pembuatan slip gaji. Dibangun menggunakan Laravel dan teknologi web modern.',
+
+    project_cindy_string_tape_title: 'Cindy String Tape Surabaya',
+    project_cindy_string_tape_desc: 'Platform company profile profesional untuk Cindy String Tape, supplier terpercaya untuk lakban dan string tape di Surabaya. Dibangun menggunakan Laravel untuk menampilkan katalog produk dan memfasilitasi pelanggan.',
+
 
     // Contact
     say_hello: 'Katakan Halo',
