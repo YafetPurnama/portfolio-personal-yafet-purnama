@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import ReactDOM from "react-dom";
+// eslint-disable-next-line no-unused-vars
 import { Container, Row, Col, Modal, Button } from "react-bootstrap";
 import Particle from "../Particle";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -154,6 +155,7 @@ function Certificates() {
   }, [numPages]);
 
   // Open lightbox for image-type certificates
+  // eslint-disable-next-line no-unused-vars
   const openImageLightbox = useCallback((cert) => {
     setLightboxOpen(true);
     setLightboxPage(1);
