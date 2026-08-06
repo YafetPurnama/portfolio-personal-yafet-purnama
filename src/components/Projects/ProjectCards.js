@@ -219,7 +219,7 @@ function ProjectCards(props) {
               variant="primary"
               href={props.pubLink}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               style={{ marginLeft: "10px" }}
             >
               <IoNewspaperOutline /> &nbsp;
