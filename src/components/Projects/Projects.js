@@ -106,6 +106,7 @@ function Projects() {
                   description={t.project_kelola_kosku_desc}
                   ghLink="https://github.com/YafetPurnama/Kelola-Kosku-Mobile-Apps"
                   apkLink="https://github.com/YafetPurnama/Kelola-Kosku-Mobile-Apps/releases/download/v1.0.0/app-release.apk"
+                  pubLink="https://ojs.widyakartika.ac.id/index.php/jscr/article/view/948"
                   detailContent={kelolaKoskuDetail}
                   previewImages={[previewKelolaKosku]}
                 />

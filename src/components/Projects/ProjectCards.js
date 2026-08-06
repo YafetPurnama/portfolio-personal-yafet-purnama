@@ -223,8 +223,7 @@ function ProjectCards(props) {
               style={{ marginLeft: "10px" }}
             >
               <IoNewspaperOutline /> &nbsp;
-              {/* {"Publikasi"} */}
-              {props.pubButtonText || "Publikasi"}
+              {t.button_publication || "Publication"}
             </Button>
           )}
           {hasPreview && (
