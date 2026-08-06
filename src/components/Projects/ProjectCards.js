@@ -3,14 +3,17 @@ import ReactDOM from "react-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { CgWebsite } from "react-icons/cg";
-import { BsGithub, BsEye, BsFileEarmarkPdf, BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
+import { BsGithub, BsEye, BsFileEarmarkPdf, BsDownload, BsBoxArrowUpRight, BsAndroid2, BsInfoCircle } from "react-icons/bs";
 import { IoNewspaperOutline } from "react-icons/io5";
 import { FiShare2 } from "react-icons/fi";
 import { FaFacebook, FaWhatsapp, FaTwitter } from "react-icons/fa";
 import { useTheme } from "../../context/ThemeContext";
 import { translations } from "../../translations/translations";
 import { SkeletonElement, SkeletonText } from "../Skeleton";
+import { QRCodeSVG } from "qrcode.react";
 
 
 function ProjectCards(props) {
@@ -25,6 +28,8 @@ function ProjectCards(props) {
   const [isMobile, setIsMobile] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [showApkModal, setShowApkModal] = useState(false);
+  const [showDetailModal, setShowDetailModal] = useState(false);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -241,6 +246,26 @@ function ProjectCards(props) {
               {props.pdfButtonText || "View Report"}
             </Button>
           )}
+          {props.apkLink && (
+            <Button
+              variant="success"
+              onClick={() => setShowApkModal(true)}
+              style={{ marginLeft: "10px", marginTop: "10px" }}
+            >
+              <BsAndroid2 /> &nbsp;
+              {t.button_download_apk || "Download APK"}
+            </Button>
+          )}
+          {props.detailContent && (
+            <Button
+              className="btn-theme-outline"
+              onClick={() => setShowDetailModal(true)}
+              style={{ marginLeft: "10px", marginTop: "10px" }}
+            >
+              <BsInfoCircle /> &nbsp;
+              {t.button_detail || "Details"}
+            </Button>
+          )}
         </Card.Body>
       </Card>
 
@@ -262,7 +287,7 @@ function ProjectCards(props) {
               src={previewImages[previewIndex]}
               alt="preview"
               className="preview-fade-image"
-              style={{ maxWidth: "100%", borderRadius: 8 }}
+              style={{ maxWidth: "100%", maxHeight: "70vh", objectFit: "contain", borderRadius: 8 }}
             />
           </Modal.Body>
           <Modal.Footer>
@@ -351,6 +376,83 @@ function ProjectCards(props) {
               {props.closeText || "Close"}
             </Button>
           </Modal.Footer>
+        </Modal>
+      )}
+
+      {/* APK Download Modal */}
+      {props.apkLink && (
+        <Modal show={showApkModal} onHide={() => setShowApkModal(false)} centered>
+          <Modal.Header closeButton>
+            <Modal.Title>{t.apk_modal_title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="text-center pb-4">
+            <p className="modal-adaptive-text mb-4">{t.apk_modal_subtitle}</p>
+
+            <div className="d-flex justify-content-center mb-4">
+              <div className="bg-white p-3 rounded d-inline-flex flex-column align-items-center shadow-sm">
+                <strong className="text-dark mb-2">{t.apk_modal_android}</strong>
+                <div className="p-2 border rounded bg-white">
+                  <QRCodeSVG value={props.apkLink} size={140} level="H" />
+                </div>
+                <small className="modal-adaptive-text mt-2">{t.apk_modal_scan}</small>
+              </div>
+            </div>
+
+            <Button variant="success" href={props.apkLink} target="_blank" className="w-100 mb-3 fw-bold py-2">
+              <BsAndroid2 /> &nbsp;{t.apk_modal_download_btn}
+            </Button>
+
+            <div className="border-top pt-3 mt-2">
+              <p className="modal-adaptive-text small mb-2">{t.apk_modal_contact}</p>
+              <Button 
+                variant="success" 
+                style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}
+                href={`https://wa.me/6282124952938?text=${encodeURIComponent(language === 'id' ? 'Halo Yafet! Saya tertarik dengan aplikasi Kelola Kosku dan ingin mengetahui detail lebih lanjut.' : 'Hi Yafet! I\'m interested in the Kelola Kosku app and would like to know more details.')}`}
+                target="_blank"
+                className="w-100 fw-bold py-2"
+              >
+                <FaWhatsapp /> &nbsp;{t.apk_modal_wa_btn}
+              </Button>
+            </div>
+          </Modal.Body>
+        </Modal>
+      )}
+
+      {/* Detail Modal */}
+      {props.detailContent && (
+        <Modal show={showDetailModal} onHide={() => setShowDetailModal(false)} size="lg" centered>
+          <Modal.Header closeButton>
+            <Modal.Title>{props.detailContent.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="pb-4">
+            <p className="modal-adaptive-text mb-4">{props.detailContent.subtitle}</p>
+
+            <Row className="g-3">
+              {props.detailContent.roles.map((role, idx) => (
+                <Col md={6} key={idx}>
+                  <div className="p-3 border rounded h-100" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
+                    <h6 className="border-bottom pb-2 mb-3" style={{ color: 'var(--imp-text-color)' }}>{role.name}</h6>
+                    <ul className="mb-0 modal-adaptive-text" style={{ fontSize: '0.9rem', lineHeight: '1.6', paddingLeft: '20px' }}>
+                      {role.features.split(', ').map((f, i) => (
+                        <li key={i}>{f}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+
+            {props.detailContent.techTitle && (
+              <div className="mt-4 p-3 border rounded" style={{ backgroundColor: 'rgba(255,255,255,0.02)' }}>
+                <h6 style={{ color: 'var(--imp-text-color)' }} className="mb-3">{props.detailContent.techTitle}</h6>
+                <div className="d-flex flex-wrap gap-2">
+                  {props.detailContent.techList.split(', ').map((tech, i) => (
+                    <span key={i} className="detail-tech-tag">{tech}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </Modal.Body>
         </Modal>
       )}
 

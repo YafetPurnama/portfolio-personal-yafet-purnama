@@ -21,6 +21,8 @@ import peerAssement from "../../Assets/Projects/banner-peer-assesment.png";
 import lockerPenyimpanan from "../../Assets/Projects/banner-loker-penyimpanan.png";
 import bannerHrisSlipGaji from "../../Assets/Projects/banner-hris-slipgaji.png";
 import bannerCindyStringTape from "../../Assets/Projects/banner-cindy-string-tape.png";
+import bannerKelolaKosku from "../../Assets/Projects/banner-kelola-kosku-landscape.png";
+import previewKelolaKosku from "../../Assets/Projects/preview-kelola-kosku.png";
 import reportRPL from "../../Assets/Projects/Report-RPL.pdf";
 
 function Projects() {
@@ -35,6 +37,19 @@ function Projects() {
 
     return () => clearTimeout(timer);
   }, []);
+
+  const kelolaKoskuDetail = {
+    title: t.project_kelola_kosku_detail_title,
+    subtitle: t.project_kelola_kosku_detail_subtitle,
+    roles: [
+      { name: t.project_kelola_kosku_role_owner, features: t.project_kelola_kosku_features_owner },
+      { name: t.project_kelola_kosku_role_secretary, features: t.project_kelola_kosku_features_secretary },
+      { name: t.project_kelola_kosku_role_guard, features: t.project_kelola_kosku_features_guard },
+      { name: t.project_kelola_kosku_role_tenant, features: t.project_kelola_kosku_features_tenant },
+    ],
+    techTitle: t.project_kelola_kosku_tech,
+    techList: t.project_kelola_kosku_tech_list,
+  };
 
   return (
     <Container fluid className="project-section">
@@ -82,6 +97,20 @@ function Projects() {
           ) : (
             // Actual project cards
             <>
+              <Col md={4} className="project-card">
+                <ProjectCard
+                  projectId="kelola-kosku"
+                  imgPath={bannerKelolaKosku}
+                  isBlog={false}
+                  title={t.project_kelola_kosku_title}
+                  description={t.project_kelola_kosku_desc}
+                  ghLink="https://github.com/YafetPurnama/Kelola-Kosku-Mobile-Apps"
+                  apkLink="https://github.com/YafetPurnama/Kelola-Kosku-Mobile-Apps/releases/download/v1.0.0/app-release.apk"
+                  detailContent={kelolaKoskuDetail}
+                  previewImages={[previewKelolaKosku]}
+                />
+              </Col>
+
               <Col md={4} className="project-card">
                 <ProjectCard
                   projectId="hris-slip-gaji"

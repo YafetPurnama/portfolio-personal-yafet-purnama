@@ -2138,3 +2138,244 @@ button:focus {
     border-radius: 0 !important;
   }
 }
+
+/* APK Download Modal */
+.apk-modal-container {
+  background-color: #1a1a2e;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.apk-modal-subtitle {
+  color: #a0a0b0;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.apk-qr-section {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0;
+}
+
+.apk-qr-card {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.apk-qr-label {
+  color: #333;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.apk-qr-wrapper {
+  padding: 8px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.apk-qr-scan-text {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.apk-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #28a745;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.apk-download-btn:hover {
+  background: #218838;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.apk-contact-section {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.apk-contact-text {
+  color: #a0a0b0;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.apk-wa-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.apk-wa-btn:hover {
+  background: #128C7E;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* Detail Modal */
+.detail-modal-container {
+  background-color: #1a1a2e;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  overflow-y: auto;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-modal-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.detail-modal-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.detail-modal-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.detail-modal-subtitle {
+  color: #a0a0b0;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.detail-roles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 576px) {
+  .detail-roles-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.detail-role-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.detail-role-title {
+  color: var(--imp-text-color);
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+}
+
+.detail-feature-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #d1d1d1;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.detail-tech-section {
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.detail-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.detail-tech-tag {
+  background: rgba(199, 112, 240, 0.15);
+  color: #c770f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(199, 112, 240, 0.3);
+}
+
+/* Theme Adaptive Outline Button */
+.btn-theme-outline {
+  background-color: transparent;
+  border: 1px solid #f8f9fa;
+  color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.btn-theme-outline:hover {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+[data-theme='light'] .btn-theme-outline {
+  border: 1px solid #212529;
+  color: #212529;
+}
+
+[data-theme='light'] .btn-theme-outline:hover {
+  background-color: #212529;
+  color: #f8f9fa;
+}
+
+/* Adaptive text for Modals to ensure readability in both themes */
+.modal-adaptive-text {
+  color: #6c757d;
+}
+
+[data-theme='dark'] .modal-adaptive-text {
+  color: #d1d1d1;
+}
