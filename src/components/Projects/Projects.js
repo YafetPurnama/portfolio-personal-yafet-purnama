@@ -23,7 +23,7 @@ import bannerHrisSlipGaji from "../../Assets/Projects/banner-hris-slipgaji.png";
 import bannerCindyStringTape from "../../Assets/Projects/banner-cindy-string-tape.png";
 import bannerKelolaKosku from "../../Assets/Projects/banner-kelola-kosku-landscape.png";
 import previewKelolaKosku from "../../Assets/Projects/preview-kelola-kosku.png";
-import bannerPresentasikan from "../../Assets/Projects/banner-presentasikan.png";
+import bannerPresentasikan from "../../Assets/Projects/dashboard-PresentasiKan.png";
 import reportRPL from "../../Assets/Projects/Report-RPL.pdf";
 
 function Projects() {
@@ -72,7 +72,7 @@ function Projects() {
     <Container fluid className="project-section">
       <Helmet>
         <title>Proyek Yafet Purnama - HRIS, Web Development, Game | Portfolio</title>
-        <meta name="description" content="Kumpulan proyek Yafet Purnama — HRIS Slip Gaji, Peer Assessment, Anugerah Jaya Abadi Website, TukuTuku Market, Rental Mobil, Game RPG, dan Locker Storage. Dibangun dengan Laravel, React.js, Next.js." />
+        <meta name="description" content="Kumpulan proyek Yafet Purnama — PresentasiKan, HRIS Slip Gaji, Peer Assessment, Anugerah Jaya Abadi Website, TukuTuku Market, Rental Mobil, Game RPG, dan Locker Storage. Dibangun dengan Laravel, React.js, Next.js." />
         <link rel="canonical" href="https://yafet-purnama-portofolio.web.id/project" />
       </Helmet>
       <Particle />
@@ -153,7 +153,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
+              <Col md={4} className="project-card" data-project-id="cindy-string-tape">
                 <ProjectCard
                   projectId="cindy-string-tape"
                   imgPath={bannerCindyStringTape}
@@ -165,7 +165,7 @@ function Projects() {
               </Col>
 
 
-              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
+              <Col md={4} className="project-card" data-project-id="locker-penyimpanan">
                 <ProjectCard
                   projectId="locker-penyimpanan"
                   imgPath={lockerPenyimpanan}
@@ -178,7 +178,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
+              <Col md={4} className="project-card" data-project-id="web-anugerah">
                 <ProjectCard
                   projectId="web-anugerah"
                   imgPath={imgAnugerah}
@@ -189,7 +189,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
+              <Col md={4} className="project-card" data-project-id="peer-assessment">
                 <ProjectCard
                   projectId="peer-assessment"
                   imgPath={peerAssement}
@@ -207,7 +207,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
+              <Col md={4} className="project-card" data-project-id="tuku-tuku">
                 <ProjectCard
                   projectId="tuku-tuku"
                   imgPath={bannerimgTuku}
@@ -218,7 +218,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
+              <Col md={4} className="project-card" data-project-id="rental-mobil">
                 <ProjectCard
                   projectId="rental-mobil"
                   imgPath={imgRental}
@@ -228,7 +228,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
+              <Col md={4} className="project-card" data-project-id="game-rpg">
                 <ProjectCard
                   projectId="game-rpg"
                   imgPath={bannerImgRpg}
