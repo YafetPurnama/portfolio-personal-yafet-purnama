@@ -23,6 +23,7 @@ import bannerHrisSlipGaji from "../../Assets/Projects/banner-hris-slipgaji.png";
 import bannerCindyStringTape from "../../Assets/Projects/banner-cindy-string-tape.png";
 import bannerKelolaKosku from "../../Assets/Projects/banner-kelola-kosku-landscape.png";
 import previewKelolaKosku from "../../Assets/Projects/preview-kelola-kosku.png";
+import bannerPresentasikan from "../../Assets/Projects/banner-presentasikan.png";
 import reportRPL from "../../Assets/Projects/Report-RPL.pdf";
 
 function Projects() {
@@ -33,6 +34,22 @@ function Projects() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
+      
+      // Auto-scroll to specific project if share link is used
+      const params = new URLSearchParams(window.location.search);
+      const projectId = params.get("project");
+      if (projectId) {
+        setTimeout(() => {
+          const element = document.querySelector(`[data-project-id="${projectId}"]`);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            element.classList.add('highlight-pulse');
+            setTimeout(() => {
+              element.classList.remove('highlight-pulse');
+            }, 3000);
+          }
+        }, 300);
+      }
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -97,7 +114,7 @@ function Projects() {
           ) : (
             // Actual project cards
             <>
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="kelola-kosku">
                 <ProjectCard
                   projectId="kelola-kosku"
                   imgPath={bannerKelolaKosku}
@@ -112,7 +129,19 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="presentasikan">
+                <ProjectCard
+                  projectId="presentasikan"
+                  imgPath={bannerPresentasikan}
+                  isBlog={false}
+                  title={t.project_presentasikan_title}
+                  description={t.project_presentasikan_desc}
+                  ghLink="https://github.com/YafetPurnama/presentation"
+                  demoLink="https://presentasikan.vercel.app/"
+                />
+              </Col>
+
+              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
                 <ProjectCard
                   projectId="hris-slip-gaji"
                   imgPath={bannerHrisSlipGaji}
@@ -124,7 +153,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
                 <ProjectCard
                   projectId="cindy-string-tape"
                   imgPath={bannerCindyStringTape}
@@ -136,7 +165,7 @@ function Projects() {
               </Col>
 
 
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
                 <ProjectCard
                   projectId="locker-penyimpanan"
                   imgPath={lockerPenyimpanan}
@@ -149,7 +178,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
                 <ProjectCard
                   projectId="web-anugerah"
                   imgPath={imgAnugerah}
@@ -160,7 +189,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
                 <ProjectCard
                   projectId="peer-assessment"
                   imgPath={peerAssement}
@@ -178,7 +207,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
                 <ProjectCard
                   projectId="tuku-tuku"
                   imgPath={bannerimgTuku}
@@ -189,7 +218,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
                 <ProjectCard
                   projectId="rental-mobil"
                   imgPath={imgRental}
@@ -199,7 +228,7 @@ function Projects() {
                 />
               </Col>
 
-              <Col md={4} className="project-card">
+              <Col md={4} className="project-card" data-project-id="hris-slip-gaji">
                 <ProjectCard
                   projectId="game-rpg"
                   imgPath={bannerImgRpg}

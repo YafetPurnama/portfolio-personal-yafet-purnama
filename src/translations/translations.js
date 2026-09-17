@@ -100,6 +100,9 @@ export const translations = {
     project_cindy_string_tape_title: 'Cindy String Tape Surabaya',
     project_cindy_string_tape_desc: 'A professional company profile platform for Cindy String Tape, a trusted supplier of packaging tapes in Surabaya. Built with Laravel to showcase products and facilitate customer inquiries.',
 
+    project_presentasikan_title: 'PresentasiKan - Web-Based Lyric Presenter',
+    project_presentasikan_desc: 'A free, open-source, web-based lyric presentation tool inspired by ProPresenter. Supports text paste and file upload (.txt, .pdf, .docx) with full client-side parsing. Features real-time cross-tab sync via BroadcastChannel API, customizable display settings, and a clean output view for screen sharing. Built with Next.js, React, TypeScript, and Tailwind CSS.',
+
     project_kelola_kosku_title: 'Kelola Kosku - SIA Indekos',
     project_kelola_kosku_desc: 'Mobile-based Accounting Information System for boarding house management. Features financial reporting, automated billing, multi-branch support, and role-based access control. Built with Flutter & Supabase.',
     project_kelola_kosku_detail_title: 'Kelola Kosku — Feature Details',
@@ -279,6 +282,9 @@ export const translations = {
 
     project_cindy_string_tape_title: 'Cindy String Tape Surabaya',
     project_cindy_string_tape_desc: 'Platform company profile profesional untuk Cindy String Tape, supplier terpercaya untuk lakban dan string tape di Surabaya. Dibangun menggunakan Laravel untuk menampilkan katalog produk dan memfasilitasi pelanggan.',
+
+    project_presentasikan_title: 'PresentasiKan - Presenter Lirik Berbasis Web',
+    project_presentasikan_desc: 'Aplikasi presentasi lirik berbasis web yang gratis dan open-source, terinspirasi dari ProPresenter. Mendukung input teks dan upload file (.txt, .pdf, .docx) dengan parsing sepenuhnya di sisi klien. Dilengkapi sinkronisasi antar-tab secara real-time via BroadcastChannel API, pengaturan tampilan yang fleksibel, dan tampilan output bersih untuk screen sharing. Dibangun dengan Next.js, React, TypeScript, dan Tailwind CSS.',
 
     project_kelola_kosku_title: 'Kelola Kosku - SIA Indekos',
     project_kelola_kosku_desc: 'Sistem Informasi Akuntansi berbasis mobile untuk manajemen indekos. Dilengkapi laporan keuangan, tagihan otomatis, multi-cabang, dan hak akses berbasis peran. Dibangun dengan Flutter & Supabase.',

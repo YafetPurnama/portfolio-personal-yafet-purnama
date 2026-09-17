@@ -2379,3 +2379,15 @@ button:focus {
 [data-theme='dark'] .modal-adaptive-text {
   color: #d1d1d1;
 }
+/* Share Link Highlight */
+.highlight-pulse {
+  animation: highlightPulse 3s ease-out;
+  border-radius: 5px;
+}
+
+@keyframes highlightPulse {
+  0% { box-shadow: 0 0 0 0 rgba(199, 112, 240, 0.7); border-color: #c770f0; }
+  70% { box-shadow: 0 0 0 20px rgba(199, 112, 240, 0); border-color: #c770f0; }
+  100% { box-shadow: 0 0 0 0 rgba(199, 112, 240, 0); border-color: inherit; }
+}
+
